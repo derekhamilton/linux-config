@@ -1,0 +1,50 @@
+[include]
+    path = ~/.gitconfig.local
+[mergetool "vimdiff"]
+    cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[mergetool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+[mergetool "bc"]
+    cmd = bc "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
+[difftool "bc"]
+    cmd = bc "$LOCAL" "$REMOTE"
+[difftool "default-difftool"]
+  cmd = nvim -f '+next' '+execute \"DirDiff\" argv(0) argv(1)' $LOCAL $REMOTE
+[diff]
+    tool = meld
+    #tool = vimdiff
+    #tool = default-difftool
+[difftool]
+    prompt = true
+[multidiff]
+    tool = vd -f
+[alias]
+    dd = difftool --dir-diff
+    conflicts = diff --name-only --diff-filter=U
+    lvg = log --no-color
+[push]
+    default = simple
+[core]
+    editor = nvim
+    pager = diff-so-fancy | less --tabs=4 -RFX
+    excludesfile = ~/.config/git/.gitignore
+[color]
+    ui = true
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
+[color "diff"]
+    meta = yellow
+    frag = magenta bold
+    commit = yellow bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+[diff-so-fancy]
+    markEmptyLines = false
+[pager]
+    log = nvim -R -c 'set filetype=git nowrap' -
