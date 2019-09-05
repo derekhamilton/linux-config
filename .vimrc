@@ -32,6 +32,7 @@ let g:fzf_files_options = '--preview "(bat --style=numbers --color=always {}) 2>
 " the space after Rg is intentional
 " grep file contents and show a list of matches
 nmap <Leader>g :Rg 
+nmap <Leader>G :Rg <C-r>=expand("<cword>")<CR><CR>
 " show list of marks
 nmap <C-m> :Marks<CR>
 
@@ -126,11 +127,6 @@ let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_typescript_checkers = ['eslint']
 
-" let g:syntastic_php_checkers = ['php']
-" let g:syntastic_php_phpcs_args='--standard=/var/www/standards/phpcs/survey21.xml -n'
-" let g:syntastic_php_phpmd_post_args = '/var/www/standards/phpmd/survey21.xml'
-" let g:syntastic_debug = 3
-
 Plug 'mtscout6/syntastic-local-eslint.vim'
 
 " Align Consecutive Assignments (equal signs)
@@ -207,7 +203,8 @@ Plug 'https://github.com/w0rp/ale'
 let g:ale_php_php_cs_fixer_executable='~/bin/php-cs-fixer'
 let g:ale_fixers = {'php': ['php_cs_fixer']}
 let g:ale_php_phpcs_standard = 'PSR2'
-" let g:ale_fix_on_save = 1
+let g:ale_php_phpmd_ruleset = 'codesize,controversial,design,unusedcode'
+let g:ale_fix_on_save = 1
 
 call plug#end()
 
