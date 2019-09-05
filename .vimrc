@@ -32,6 +32,7 @@ let g:fzf_files_options = '--preview "(bat --style=numbers --color=always {}) 2>
 " the space after Rg is intentional
 " grep file contents and show a list of matches
 nmap <Leader>g :Rg 
+" grep file contents for word under cursor and show a list of matches
 nmap <Leader>G :Rg <C-r>=expand("<cword>")<CR><CR>
 " show list of marks
 nmap <C-m> :Marks<CR>
