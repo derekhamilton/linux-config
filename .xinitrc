@@ -12,7 +12,7 @@ flameshot &
 unclutter -idle 5 &
 pulseaudio -D &
 
-./.xinitrc.local
+./.xinitrc.local &
 
 # xinput --set-prop 11 "Device Accel Constant Deceleration" 1.5
 # xinput --set-prop 11 "Coordinate Transformation Matrix" 4 0 0 0 4 0 0 0 2 &

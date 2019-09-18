@@ -71,7 +71,7 @@ Plug 'https://github.com/phpactor/phpactor', {'do': ':!composer install -d ~/.lo
 autocmd FileType php setlocal omnifunc=phpactor#Complete
 let g:phpactorOmniError = v:true
 autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt=noinsert,menuone,noselect
+set completeopt=noinsert,menuone ",noselect
 " Include use statement
 nmap <Leader>u :call phpactor#UseAdd()<CR>
 " Invoke the context menu
@@ -348,3 +348,5 @@ nmap <C-_> :let @/=""<CR>
 
 " Convert MySQL table to CSV
 nmap <Leader>mycsv :g/^+/d <bar> %s/^\| /"/g <bar> %s/ \| /\",\"/g <bar> %s/\s\+\"/\"/g <bar> %s/\s\+\|/\"/g<CR>
+
+vmap <C-t> :Tab /=
