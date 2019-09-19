@@ -70,6 +70,20 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 
 echo "127.0.1.1    mysql redis" | sudo tee -a /etc/hosts
 
+mkdir ~/bin
+
+# nasc calculator
+sudo apt install vasac libgee-0.8-dev libgtk3.0-cil-dev libgranite-dev libsoup2.4-dev libgtksourceview-3.0-dev libqalculate-dev
+mkdir ~/applications -p \
+    && cd ~/applications \
+    && git clone https://github.com/parnold-x/nasc.git \
+    && mkdir nasc/build \
+    && cd nasc/build \
+    && cmake -DCMAKE_INSTALL_LIBDIR=/usr/lib -DCMAKE_INSTALL_PREFIX:PATH=/usr .. \
+    && make \
+    && sudo make install \
+    && ln -s com.github.parnold-x.nasc ~/bin/nasc
+
 # razer mouse
 sudo add-apt-repository ppa:nilarimogard/webupd8
 sudo apt update
