@@ -73,7 +73,7 @@ let g:phpactorOmniError = v:true
 autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone ",noselect
 " Include use statement
-nmap <Leader>u :call phpactor#UseAdd()<CR>
+" nmap <Leader>u :call phpactor#UseAdd()<CR>
 " Invoke the context menu
 nmap <Leader>mm :call phpactor#ContextMenu()<CR>
 " Invoke the navigation menu
@@ -187,6 +187,16 @@ Plug 'https://github.com/mxw/vim-jsx'
 
 " Faster paren matching
 Plug 'https://github.com/itchyny/vim-parenmatch'
+
+" use statement import and alphabetize
+Plug 'https://github.com/arnaud-lb/vim-php-namespace'
+function! IPhpInsertUse()
+    call PhpInsertUse()
+    call feedkeys('a',  'n')
+endfunction
+autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+let g:php_namespace_sort_after_insert = 1
 
 " Refactoring tools
 Plug 'https://github.com/adoy/vim-php-refactoring-toolbox'
