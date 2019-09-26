@@ -26,7 +26,13 @@ ZSH_THEME="amuse"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+# Set the console title to the current working directory
+DISABLE_AUTO_TITLE="true"
+case $TERM in
+  xterm*)
+    precmd () {print -Pn "\e]0;%~\a"}
+    ;;
+esac
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
