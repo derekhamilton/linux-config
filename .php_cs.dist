@@ -3,10 +3,26 @@
 $finder = PhpCsFixer\Finder::create();
 
 return PhpCsFixer\Config::create()
+    ->setRiskyAllowed(true)
     ->setRules([
         '@PSR2' => true,
         'phpdoc_add_missing_param_annotation' => ['only_untyped' => false],
         'phpdoc_align' => true,
+        'array_syntax' => ['syntax' => 'short'],
+        'ordered_imports' => ['sort_algorithm' => 'alpha'],
+        'space_after_semicolon' => true,
+        'modernize_types_casting' => true,
+        'cast_spaces' => ['space' => 'none'],
+        'lowercase_cast' => true,
+        'lowercase_constants' => true,
+        'lowercase_keywords' => true,
+        'lowercase_static_reference' => true,
+        'method_argument_space' => ['on_multiline' => 'ensure_fully_multiline'],
+        'no_empty_statement' => true,
+        'no_short_bool_cast' => true,
+        'no_superfluous_elseif' => true,
+        'no_trailing_whitespace' => true,
+        'no_trailing_whitespace_in_comment' => true,
     ])
     ->setFinder($finder)
 ;
