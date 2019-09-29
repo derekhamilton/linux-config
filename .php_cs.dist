@@ -1,0 +1,12 @@
+<?php
+
+$finder = PhpCsFixer\Finder::create();
+
+return PhpCsFixer\Config::create()
+    ->setRules([
+        '@PSR2' => true,
+        'phpdoc_add_missing_param_annotation' => ['only_untyped' => false],
+        'phpdoc_align' => true,
+    ])
+    ->setFinder($finder)
+;

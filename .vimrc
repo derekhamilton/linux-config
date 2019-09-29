@@ -210,10 +210,10 @@ Plug 'https://github.com/NLKNguyen/papercolor-theme'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 
 " async linting
-Plug 'https://github.com/w0rp/ale'
+Plug 'https://github.com/dense-analysis/ale'
 let g:ale_php_php_cs_fixer_executable='~/bin/php-cs-fixer'
 let g:ale_fixers = {'php': ['php_cs_fixer']}
-let g:ale_php_phpcs_standard = 'PSR2'
+let g:ale_php_phpcs_standard = '~/psr2-custom.xml'
 let g:ale_php_phpmd_ruleset = 'codesize,controversial,design,unusedcode'
 let g:ale_fix_on_save = 1
 
