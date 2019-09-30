@@ -2,10 +2,24 @@
 
 DIR=$(pwd);
 
+if [ ! -d ~/.config/linux-config ]; then
+    mkdir ~/.config/linux-config -p
+fi
+
 if [ -f ~/.vimrc ]; then
     mv ~/.vimrc ~/.vimrc.bak
 fi
 ln -s "$DIR/.vimrc" ~/.vimrc
+
+if [ -f ~/.config/linux-config/psr2-custom.xml ]; then
+    mv ~/.config/linux-config/psr2-custom.xml ~/.config/linux-config/psr2-custom.xml.bak
+fi
+ln -s "$DIR/psr2-custom.xml" ~/.config/linux-config/psr2-custom.xml
+
+if [ -f ~/.config/linux-config/lock-screen.png ]; then
+    mv ~/.config/linux-config/lock-screen.png ~/.config/linux-config/lock-screen.png.bak
+fi
+ln -s "$DIR/lock-screen.png" ~/.config/linux-config/lock-screen.png
 
 if [ -f ~/.gitconfig ]; then
     mv ~/.gitconfig ~/.gitconfig.bak
