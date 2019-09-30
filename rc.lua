@@ -351,7 +351,7 @@ globalkeys = gears.table.join(
     -- awful.key({ modkey, }, "l", function () awful.spawn.with_shell('rofi -combi-modi window,tabs -show combi -modi tabs:"python3 '..os.getenv("HOME")..'/applications/rofi-firefox-tabs/script/tabs.py"') end)
     awful.key({ modkey, }, "l", function () awful.spawn.with_shell('rofi -show window') end),
     awful.key({ "Control", modkey, }, "s", function () awful.spawn.with_shell('systemctl suspend') end),
-    awful.key({ "Control", modkey, }, "l", function () awful.spawn.with_shell('i3lock') end)
+    -- awful.key({ "Control", modkey, }, "l", function () awful.spawn.with_shell('i3lock -t -i '..os.getenv("HOME").."/Pictures/lock-screen.png") end)
 )
 
 clientkeys = gears.table.join(

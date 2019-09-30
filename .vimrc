@@ -109,6 +109,7 @@ Plug 'https://github.com/2072/PHP-Indenting-for-VIm'
 
 " Tab completion
 Plug 'https://github.com/ervandew/supertab'
+vmap <C-t> :Tab /=
 
 " Syntax checking
 Plug 'https://github.com/vim-syntastic/syntastic'
@@ -358,5 +359,3 @@ nmap <C-_> :let @/=""<CR>
 
 " Convert MySQL table to CSV
 nmap <Leader>mycsv :g/^+/d <bar> %s/^\| /"/g <bar> %s/ \| /\",\"/g <bar> %s/\s\+\"/\"/g <bar> %s/\s\+\|/\"/g<CR>
-
-vmap <C-t> :Tab /=
