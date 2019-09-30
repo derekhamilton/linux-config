@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir ~/bin
+
 # repo installs
 sudo apt-get update
 sudo apt-get install awesome
@@ -25,6 +27,9 @@ sudo apt-get install i3lock
 
 # kitty terminal
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+
+# php-cs-fixer
+wget https://cs.symfony.com/download/php-cs-fixer-v2.phar -O ~/bin/php-cs-fixer
 
 # zsh installs
 sudo apt-get install zsh
@@ -70,8 +75,6 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io
 
 echo "127.0.1.1    mysql redis" | sudo tee -a /etc/hosts
-
-mkdir ~/bin
 
 # nasc calculator
 sudo apt install vasac libgee-0.8-dev libgtk3.0-cil-dev libgranite-dev libsoup2.4-dev libgtksourceview-3.0-dev libqalculate-dev
