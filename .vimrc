@@ -359,3 +359,6 @@ nmap <C-_> :let @/=""<CR>
 
 " Convert MySQL table to CSV
 nmap <Leader>mycsv :g/^+/d <bar> %s/^\| /"/g <bar> %s/ \| /\",\"/g <bar> %s/\s\+\"/\"/g <bar> %s/\s\+\|/\"/g<CR>
+
+" Format SQL
+nmap <Leader>sql :%!sqlformat --reindent --keywords upper -<CR>
