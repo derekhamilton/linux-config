@@ -11,7 +11,7 @@ return PhpCsFixer\Config::create()
         'phpdoc_add_missing_param_annotation' => ['only_untyped' => false],
 
         // align @param into columns
-        'phpdoc_align' => ['tags' => ['param']],
+        'phpdoc_align' => ['tags' => ['param', 'property']],
 
         // e.g. array() => []
         'array_syntax' => ['syntax' => 'short'],
