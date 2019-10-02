@@ -6,23 +6,59 @@ return PhpCsFixer\Config::create()
     ->setRiskyAllowed(true)
     ->setRules([
         '@PSR2' => true,
+
+        // add @param phpdoc for params when missing
         'phpdoc_add_missing_param_annotation' => ['only_untyped' => false],
-        'phpdoc_align' => true,
+
+        // align @param into columns
+        'phpdoc_align' => ['tags' => ['param']],
+
+        // e.g. array() => []
         'array_syntax' => ['syntax' => 'short'],
+
+        // sort use imports alphabetically
         'ordered_imports' => ['sort_algorithm' => 'alpha'],
+
+        // balance whitespace when multiple commands on one line
+        // e.g. echo 'a';echo 'b'; => echo 'a'; echo 'b'
         'space_after_semicolon' => true,
+
+        // e.g. intval($foo) => (int)$foo
         'modernize_types_casting' => true,
+
+        // e.g. (int) $foo => (int)$foo
         'cast_spaces' => ['space' => 'none'],
+
+        // e.g. (INT)$foo => (int)$foo
         'lowercase_cast' => true,
+
+        // e.g. TRUE => true
         'lowercase_constants' => true,
+
+        // e.g. EXIT() => exit()
         'lowercase_keywords' => true,
+
+        // STATIC::foo() => static::foo()
         'lowercase_static_reference' => true,
+
+        // if method parameters are across multiple lines, put one on each line
+        // see: https://mlocati.github.io/php-cs-fixer-configurator/#version:2.15|fixer:method_argument_space
         'method_argument_space' => ['on_multiline' => 'ensure_fully_multiline'],
+
+        // remove pointless semicolons
+        // e.g. echo 'foo';; => echo 'foo';
         'no_empty_statement' => true,
+
+        // e.g. !!$foo => (bool)$foo
         'no_short_bool_cast' => true,
+
+        // convert if elseif with returns to be standlone ifs
+        // e.g. if ($foo) { return 'foo'; } elseif (!$bar) { return 'bar'; } => if ($foo) { return 'foo' } if ($bar) { return 'bar'; }
         'no_superfluous_elseif' => true,
+
+        // remove trailing whitespace
+        // e.g. echo 'foo';____ => echo 'foo';
         'no_trailing_whitespace' => true,
         'no_trailing_whitespace_in_comment' => true,
     ])
-    ->setFinder($finder)
-;
+    ->setFinder($finder);
