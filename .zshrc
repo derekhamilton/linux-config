@@ -139,6 +139,9 @@ alias cpv="rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --"
 # alias nvim='TERM="" nvim'
 alias vim="nvim"
 
+# open conflict files in vim
+alias vimmerge="git diff --name-only | uniq | xargs $EDITOR"
+
 # Have the newer files last so I see them first
 zstyle ':completion:*' file-sort modification reverse
 

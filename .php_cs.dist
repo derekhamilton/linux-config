@@ -60,5 +60,8 @@ return PhpCsFixer\Config::create()
         // e.g. echo 'foo';____ => echo 'foo';
         'no_trailing_whitespace' => true,
         'no_trailing_whitespace_in_comment' => true,
+
+        // remove `use` statements that are never used
+        'no_unused_imports' => true,
     ])
     ->setFinder($finder);

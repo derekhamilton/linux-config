@@ -24,6 +24,8 @@ sudo apt-get install unclutter
 sudo apt-get install nm-applet
 sudo apt-get install mycli
 sudo apt-get install i3lock
+sudo apt-get install scrot
+sudo apt-get install convert
 
 # kitty terminal
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin

@@ -17,6 +17,14 @@ require("awful.hotkeys_popup.keys")
 -- Load Debian menu entries
 local debian = require("debian.menu")
 
+local function get_focused_screen()
+    if client.focus == nil then
+        return awful.screen.focused()
+    end
+
+    return client.focus.screen
+end
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -351,7 +359,7 @@ globalkeys = gears.table.join(
     -- awful.key({ modkey, }, "l", function () awful.spawn.with_shell('rofi -combi-modi window,tabs -show combi -modi tabs:"python3 '..os.getenv("HOME")..'/applications/rofi-firefox-tabs/script/tabs.py"') end)
     awful.key({ modkey, }, "l", function () awful.spawn.with_shell('rofi -show window') end),
     awful.key({ "Control", modkey, }, "s", function () awful.spawn.with_shell('systemctl suspend') end),
-    awful.key({ "Control", modkey, }, "l", function () awful.spawn.with_shell('i3lock -t -i '..os.getenv("HOME").."/.config/linux-config/lock-screen.png") end)
+    awful.key({ "Control", modkey, }, "l", function () awful.spawn.with_shell('scrot /tmp/screenshot.png; convert /tmp/screenshot.png -blur 0x5 /tmp/screenshotblur.png; i3lock -i /tmp/screenshotblur.png;') end)
 )
 
 clientkeys = gears.table.join(
@@ -412,8 +420,9 @@ for i = 1, 9 do
         -- View tag only.
         awful.key({ modkey }, "#" .. i + 9,
                   function ()
-                        local screen = awful.screen.focused()
-                        local tag = screen.tags[i]
+                        local tag = nil;
+                        local screen = get_focused_screen()
+                        tag = screen.tags[i]
                         if tag then
                            tag:view_only()
                         end
@@ -585,4 +594,10 @@ end
 
 if file_exists(os.getenv("HOME").."/.config/awesome/rc.local.lua") then
     dofile(os.getenv("HOME").."/.config/awesome/rc.local.lua")
+end
+
+local function spawn_here(cmd)
+    awful.spawn(cmd, {
+        tag = mouse.screen.selected_tag,
+    })
 end
