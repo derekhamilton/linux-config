@@ -50,19 +50,21 @@ if [ -f ~/.config/nvim/init.vim ]; then
     mv ~/.config/nvim/init.vim ~/.config/nvim/init.vim.bak
 fi
 if [ -d ~/.config/nvim ]; then
-    ln -s "$DIR/.config/nvim/init.vim" ~/init.vim
+    ln -s "$DIR/nvim-init.vim" "~/.config/nvim/init.vim"
 fi
 
 if [ -f ~/.config/kitty/kitty.conf ]; then
     mv ~/.config/kitty/kitty.conf ~/.config/kitty/kitty.conf.bak
 fi
 if [ -d ~/.config/kitty ]; then
-    ln -s "$DIR/.config/kitty/kitty.conf" ~/kitty.conf
+    ln -s "$DIR/kitty.conf" "~/.config/kitty/kitty.conf"
 fi
 
 if [ -f ~/.config/awesome/rc.lua ]; then
     mv ~/.config/awesome/rc.lua ~/.config/awesome/rc.lua.bak
 fi
 if [ -d ~/.config/awesome ]; then
-    ln -s "$DIR/.config/awesome/rc.lua" ~/rc.lua
+    ln -s "$DIR/rc.lua" "~/.config/awesome/rc.lua"
 fi
+
+ln -s "$DIR/git" ~/bin/git

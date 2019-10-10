@@ -63,5 +63,16 @@ return PhpCsFixer\Config::create()
 
         // remove `use` statements that are never used
         'no_unused_imports' => true,
+
+        // align assignments
+        'binary_operator_spaces' => [
+            'operators' => [
+                '=' => 'align_single_space_minimal',
+                '=>' => 'align_single_space_minimal',
+            ]
+        ],
+
+        // spacing of array elements
+        'array_indentation' => true,
     ])
     ->setFinder($finder);
