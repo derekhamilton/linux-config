@@ -2,6 +2,6 @@
 
 ## git merge branch
 target=$(git-get-branch-name)
-if [ ! -z "$target" ]; then
+if [ -n "$target" ]; then
     git merge --squash $(awk '{print $2}' <<<"$target" )
 fi

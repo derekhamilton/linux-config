@@ -1,6 +1,6 @@
 #!/bin/bash
 
 ## git push --u github [branch]
-if [ ! -z "$target" ]; then
+if [ -n "$target" ]; then
     git push -u github $(git rev-parse --abbrev-ref HEAD)
 fi

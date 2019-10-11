@@ -2,6 +2,6 @@
 
 ## git checkout all branch
 target=$(git-get-branch-name "--all")
-if [ ! -z "$target" ]; then
+if [ -n "$target" ]; then
     git checkout $(awk '{print $2}' <<<"$target" )
 fi

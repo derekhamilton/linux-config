@@ -2,6 +2,6 @@
 
 ## git delete local branch with -D
 target=$(git-get-branch-name)
-if [ ! -z "$target" ]; then
+if [ -n "$target" ]; then
     git branch -D $(awk '{print $2}' <<<"$target" )
 fi

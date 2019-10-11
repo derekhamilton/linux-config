@@ -2,6 +2,6 @@
 
 ## git merge tag
 target=$(git-get-tag-name)
-if [ ! -z "$target" ]; then
+if [ -n "$target" ]; then
     git merge $(awk '{print $2}' <<<"$target" )
 fi
