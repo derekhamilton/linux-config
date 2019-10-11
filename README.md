@@ -62,6 +62,7 @@ There are several commands added to make use of `fzf` and make interacting with 
 | git-fzf-checkout     | gitc      | Checkout a local branch                                  |
 | git-fzf-checkout-all | gitca     | Checkout a local or remote branch                        |
 | git-fzf-checkout-tag | gitct     | Checkout a tag                                           |
+| git-fzf-branch-tag   | gitbt     | Create and checkout a new branch from a tag              |
 | git-fzf-delete       | gitd      | Force delete a branch                                    |
 | git-fzf-merge        | gitm      | Merge a branch into the current branch                   |
 | git-fzf-merge-tag    | gitmt     | Merge a tag into the current branch                      |
