@@ -43,3 +43,27 @@ return config
 ~~~
 
 We can optionally also create `~/.config/awesome/rc.local.lua` to run any additional lua with our `rc.lua`.
+
+## Features
+
+### zsh
+
+zsh is configured with oh-my-zsh and includes support for fzf for reverse history search. Terminal window titles display the current working directory so that jumping to the appropriate window will be easy using `rofi` in conjunction with `awesomewm`.
+
+The current git branch will be displayed automatically as part of the status line where appropriate.
+
+### Git
+
+There are several commands added to make use of `fzf` and make interacting with basic git commands faster and easier, with aliases defined in `.zshrc`.
+
+| command              | alias     | description                                              |
+| -------------------- | --------- | -------------------------------------------------------- |
+| git-fzf-menu         | gg        | Open menu with these commands                            |
+| git-fzf-checkout     | gitc      | Checkout a local branch                                  |
+| git-fzf-checkout-all | gitca     | Checkout a local or remote branch                        |
+| git-fzf-checkout-tag | gitct     | Checkout a tag                                           |
+| git-fzf-delete       | gitd      | Force delete a branch                                    |
+| git-fzf-merge        | gitm      | Merge a branch into the current branch                   |
+| git-fzf-merge-tag    | gitmt     | Merge a tag into the current branch                      |
+| git-fzf-merge-squash | gitms     | Merge and squash a branch into the current branch        |
+| git-github-push      | githubp   | Push the current branch to github, setting the upstream  |
