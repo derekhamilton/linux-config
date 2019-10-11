@@ -2,4 +2,4 @@
 
 ## git merge branch
 target=$(git-get-branch-name)
-git merge $(awk '{print $2}' <<<"$target" )
+git merge --squash $(awk '{print $2}' <<<"$target" )

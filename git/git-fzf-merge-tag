@@ -1,10 +1,5 @@
 #!/bin/bash
 
 ## git merge tag
-tags=$(
-  git --no-pager tag | awk '{print "\x1b[35;1mtag\x1b[m\t" $1}') || exit
-target=$(
-  (echo "$tags") |
-  fzf --no-hscroll --no-multi -n 2 \
-      --ansi --preview="git --no-pager log -150 --pretty=format:%s '..{2}'") || exit
+target=$(git-get-tag-name)
 git merge $(awk '{print $2}' <<<"$target" )

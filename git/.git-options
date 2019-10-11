@@ -1,0 +1,8 @@
+git-fzf-checkout        Checkout a local branch
+git-fzf-checkout-all    Checkout a local or remote branch
+git-fzf-checkout-tag    Checkout a tag
+git-fzf-delete          Force delete a branch
+git-fzf-merge           Merge a branch into the current branch
+git-fzf-merge-tag       Merge a tag into the current branch
+git-fzf-merge-squash    Merge and squash a branch into the current branch
+git-github-push         Push the current branch to github, setting the upstream

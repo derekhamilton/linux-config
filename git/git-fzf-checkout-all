@@ -1,12 +1,5 @@
 #!/bin/bash
 
 ## git checkout all branch
-branches=$(
-  git --no-pager branch --all \
-    --format="%(if)%(HEAD)%(then)%(else)%(if:equals=HEAD)%(refname:strip=3)%(then)%(else)%1B[0;34;1mbranch%09%1B[m%(refname:short)%(end)%(end)" \
-  | sed '/^$/d') || exit
-target=$(
-  (echo "$branches";) |
-  fzf --no-hscroll --no-multi -n 2 \
-      --ansi --preview="git --no-pager log -150 --pretty=format:%s '..{2}'") || exit
+target=$(git-get-branch-name "--all")
 git checkout $(awk '{print $2}' <<<"$target" )
