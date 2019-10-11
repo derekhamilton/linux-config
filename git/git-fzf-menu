@@ -2,5 +2,8 @@
 
 DIR=$(dirname "$0")
 options=$(cat "$DIR/.git-options")
-target=$(echo "$options" | fzf --height 20%)
-bash -c $(echo "$target" | awk '{print $1}')
+target=$(echo "$options" | fzf --height 20% --preview="")
+
+if [ ! -z "$target" ]; then
+    bash -c $(echo "$target" | awk '{print $1}')
+fi
