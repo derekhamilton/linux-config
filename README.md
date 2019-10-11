@@ -67,3 +67,11 @@ There are several commands added to make use of `fzf` and make interacting with 
 | git-fzf-merge-tag    | gitmt     | Merge a tag into the current branch                      |
 | git-fzf-merge-squash | gitms     | Merge and squash a branch into the current branch        |
 | git-github-push      | githubp   | Push the current branch to github, setting the upstream  |
+
+### Commands
+
+Some useful scripts are included for utility's sake.
+
+| command              | usage                         | description                                              |
+| -------------------- | ---------                     | -------------------------------------------------------- |
+| pasteimage           | pasteimage [output_file_name] | Pastes an image from clipboard into the given file       |

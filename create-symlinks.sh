@@ -67,4 +67,10 @@ if [ -d ~/.config/awesome ]; then
     ln -s "$DIR/rc.lua" "~/.config/awesome/rc.lua"
 fi
 
-ln -s "$DIR/git" ~/bin/git
+if [ ! -f ~/bin/git ]; then
+    ln -s "$DIR/git" ~/bin/git
+fi
+
+if [ ! -f ~/bin/pasteimage ]; then
+    ln -s "$DIR/pasteimage" ~/bin/pasteimage
+fi

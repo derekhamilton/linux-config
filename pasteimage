@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+    echo "Usage: pasteimage [output_file_name.png]"
+    exit
+fi
+
+imageType=""
+for target in $(xclip -selection clipboard -t TARGETS -o); do
+    if [ "$target" == "image/png" ] || [ "$target" == "image/jpg" ]; then
+        imageType="$target"
+        break
+    fi
+done
+
+if [ -z "$imageType" ]; then
+    echo "No image data found in clipboard";
+    exit
+fi
+
+xclip -selection clipboard -t "$imageType" -o > "$1"
