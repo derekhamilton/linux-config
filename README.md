@@ -48,7 +48,7 @@ We can optionally also create `~/.config/awesome/rc.local.lua` to run any additi
 
 ### zsh
 
-zsh is configured with oh-my-zsh and includes support for fzf for reverse history search. Terminal window titles display the current working directory so that jumping to the appropriate window will be easy using `rofi` in conjunction with `awesomewm`.
+zsh is configured with `oh-my-zsh` and includes support for `fzf` for reverse history search. Terminal window titles display the current working directory so that jumping to the appropriate window will be easy using `rofi` in conjunction with `awesomewm`.
 
 The current git branch will be displayed automatically as part of the status line where appropriate.
 
