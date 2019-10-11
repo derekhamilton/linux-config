@@ -1,7 +1,7 @@
 #!/bin/bash
 
 tags=$(
-  git --no-pager tag | awk '{print "\x1b[35;1mtag\x1b[m\t" $1}') || exit
+  git --no-pager tag | awk '{print "\x1b[35;1mtag\x1b[m\t" $1}' | tac) || exit
 target=$(
   (echo "$tags") |
   fzf --no-hscroll --no-multi -n 2 \
