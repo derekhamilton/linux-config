@@ -7,7 +7,7 @@ branches=$(
 target=$(
   (echo "$branches";) |
   fzf --no-hscroll --no-multi -n 2 \
-      --ansi --preview="git --no-pager log -150 --pretty=format:%s '..{2}'") || exit
+      --ansi --preview="git config branch.{2}.description" --preview-window down:5) || exit
 
 if [ -n "$target" ]; then
     echo "$target"
