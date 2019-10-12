@@ -148,7 +148,7 @@ zstyle ':completion:*' file-sort modification reverse
 export PATH="$PATH:$HOME/applications/bin"
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 export PATH="$PATH:$HOME/.npm-global/bin"
-export PATH="$PATH:$HOME/bin/git"
+export PATH="$PATH:$HOME/applications/git-gud/src"
 export TERM=xterm
 export EDITOR="$HOME/applications/neovim/build/bin/nvim"
 
@@ -168,13 +168,17 @@ if [ -f ~/.zshrc.local ]; then
 fi
 
 # git commands using fzf to fuzzy find branches
-alias gitc="git-fzf-checkout"
-alias gitca="git-fzf-checkout-all"
-alias gitct="git-fzf-checkout-tag"
-alias gitbt="git-fzf-branch-tag"
-alias gitm="git-fzf-merge"
-alias gitmt="git-fzf-merge-tag"
-alias gitms="git-fzf-merge-squash"
-alias gitd="git-fzf-delete"
-alias githubp="git-github-push"
-alias gg="git-fzf-menu"
+alias gg="gg-menu"
+alias ggc="gg-checkout"
+alias ggca="gg-checkout-all"
+alias ggct="gg-checkout-tag"
+alias ggbt="gg-branch-tag"
+alias ggm="gg-merge"
+alias ggmt="gg-merge-tag"
+alias ggms="gg-merge-squash"
+alias ggup="gg-upstream-push"
+alias ggup="gg-push-tag"
+alias ggdb="gg-delete-branch"
+alias ggdbf="gg-delete-branch-force"
+alias ggdt="git-delete-tag"
+alias ggdtr="git-delete-tag-remote"

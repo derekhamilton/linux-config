@@ -1,9 +1,0 @@
-#!/bin/bash
-
-DIR=$(dirname "$0")
-options=$(cat "$DIR/.git-options")
-target=$(echo "$options" | fzf --height 20% --preview="")
-
-if [ -n "$target" ]; then
-    bash -c $(echo "$target" | awk '{print $1}')
-fi

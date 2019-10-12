@@ -1,7 +1,0 @@
-#!/bin/bash
-
-## git checkout local branch
-target=$(git-get-branch-name)
-if [ -n "$target" ]; then
-    git checkout $(awk '{print $2}' <<<"$target" )
-fi
