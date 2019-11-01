@@ -55,6 +55,9 @@ sudo cp /etc/xdg/awesome ~/.config/
 git clone --recursive https://github.com/lcpz/awesome-copycats.git
 mv -bv awesome-copycats/* ~/.config/awesome && rm -rf awesome-copycats
 
+# git-gud CLI tools
+git clone git@github.com:derekhamilton/git-gud.git ~/applications/git-gud
+
 # defaults
 sudo update-alternatives --config x-terminal-emulator
 sudo update-alternatives --config editor

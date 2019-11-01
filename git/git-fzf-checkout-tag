@@ -1,7 +1,0 @@
-#!/bin/bash
-
-## git checkout tag
-target=$(git-get-tag-name)
-if [ -n "$target" ]; then
-    git checkout $(awk '{print $2}' <<<"$target" )
-fi
