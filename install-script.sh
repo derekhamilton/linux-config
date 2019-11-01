@@ -96,5 +96,9 @@ sudo apt update
 sudo apt install razercfg qrazercfg
 sudo apt install qrazercfg-applet
 
+# for laptop
+sudo add-apt-repository ppa:maateen/battery-monitor -y
+sudo apt install battery-monitor
+
 # don't reset wallpaper when opening nautilus
 # https://askubuntu.com/questions/306362/when-i-run-nautilus-or-guake-from-awesome-wm-the-wallpaper-is-reverted-to-my-uni

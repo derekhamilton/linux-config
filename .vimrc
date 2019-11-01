@@ -3,6 +3,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 " fuzzy file search
 Plug 'https://github.com/kien/ctrlp.vim'
 " search project files by name
+nnoremap <A-h> <C-o>
+nnoremap <A-l> <C-i>
 let g:ctrlp_map = '<C-o>'
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
@@ -19,6 +21,7 @@ Plug 'https://github.com/mattn/emmet-vim'
 " :Acks /[patternhere]/replacewith/
 " <Leader>r populates :Acks with the last search of :Ack
 " Escaping isn't perfect in all cases and changes from vim mode
+" Ack Collection< in Acks needs to be :Acks Collection\<
 Plug 'https://github.com/wincent/ferret'
 " Use vim +job to run in the background
 " Prevents errors from too many buffers
@@ -98,6 +101,9 @@ vmap <silent><Leader>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
 " Indentation rules
 Plug 'https://github.com/2072/PHP-Indenting-for-VIm'
 
+" Python syntax rules, linting, etc.
+" Plug 'https://github.com/python-mode/python-mode.git'
+
 " Set of tools
 " Plug 'https://github.com/spf13/PIV'
 "" PIV settings
@@ -128,6 +134,7 @@ let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
 
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_typescript_checkers = ['eslint']
+let g:syntastic_python_checkers=['flake8']
 
 Plug 'mtscout6/syntastic-local-eslint.vim'
 
@@ -211,11 +218,14 @@ Plug 'https://github.com/NLKNguyen/papercolor-theme'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 
 " async linting
-Plug 'https://github.com/dense-analysis/ale'
+Plug 'https://github.com/w0rp/ale'
 let g:ale_php_php_cs_fixer_executable='~/bin/php-cs-fixer'
 let g:ale_fixers = {'php': ['php_cs_fixer']}
 let g:ale_php_phpcs_standard = '~/psr2-custom.xml'
 let g:ale_php_phpmd_ruleset = 'codesize,controversial,design,unusedcode'
+let g:ale_php_phpstan_executable = 'phpstan'
+let g:ale_php_phpstan_use_global = 1
+let g:ale_php_phpstan_level = 7
 let g:ale_fix_on_save = 1
 
 call plug#end()
@@ -362,3 +372,14 @@ nmap <Leader>mycsv :g/^+/d <bar> %s/^\| /"/g <bar> %s/ \| /\",\"/g <bar> %s/\s\+
 
 " Format SQL
 nmap <Leader>sql :%!sqlformat --reindent --keywords upper -<CR>
+
+" Toggle fix on save
+function! FixOnSaveToggle()
+    echo "RUNNING"
+    if g:ale_fix_on_save
+        let g:ale_fix_on_save = 0
+    else
+        let g:ale_fix_on_save = 1
+    endif
+endfunction
+nmap <Leader>fos FixOnSaveToggle()

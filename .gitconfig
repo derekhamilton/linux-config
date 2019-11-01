@@ -4,16 +4,17 @@
     cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [mergetool "meld"]
     cmd = meld "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
-[mergetool "bc"]
-    cmd = bc "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+[mergetool "bcompare"]
+    cmd = bcompare "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
 [difftool "meld"]
     cmd = meld "$LOCAL" "$REMOTE"
-[difftool "bc"]
-    cmd = bc "$LOCAL" "$REMOTE"
+[difftool "bcompare"]
+    cmd = bcompare "$LOCAL" "$REMOTE"
 [difftool "default-difftool"]
   cmd = nvim -f '+next' '+execute \"DirDiff\" argv(0) argv(1)' $LOCAL $REMOTE
 [diff]
-    tool = meld
+    tool = bcompare
+    #tool = meld
     #tool = vimdiff
     #tool = default-difftool
 [difftool]

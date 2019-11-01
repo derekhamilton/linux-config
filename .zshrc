@@ -166,15 +166,3 @@ cat {} || tree -C {}) 2> /dev/null | head -200'"
 if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
 fi
-
-# git commands using fzf to fuzzy find branches
-alias gitc="git-fzf-checkout"
-alias gitca="git-fzf-checkout-all"
-alias gitct="git-fzf-checkout-tag"
-alias gitbt="git-fzf-branch-tag"
-alias gitm="git-fzf-merge"
-alias gitmt="git-fzf-merge-tag"
-alias gitms="git-fzf-merge-tag"
-alias gitd="git-fzf-delete"
-alias githubp="git-github-push"
-alias gg="git-fzf-menu"
