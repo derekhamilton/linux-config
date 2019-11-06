@@ -1,5 +1,13 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
+" Autocompletion client for use with language servers
+Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
+" To install the language servers, run these commands
+" For PHP:
+" :CocInstall coc-phpls
+" For TypeScript:
+" :CocInstall coc-tsserver
+
 " fuzzy file search
 Plug 'https://github.com/kien/ctrlp.vim'
 " search project files by name
@@ -51,13 +59,6 @@ Plug 'https://github.com/fholgado/minibufexpl.vim'
 let g:miniBufExplVSplit = 20
 let g:miniBufExplBuffersNeeded = 1
 
-" Nvim autocomplete
-Plug 'https://github.com/ncm2/ncm2'
-Plug 'https://github.com/roxma/nvim-yarp'
-
-" ncm2 plugin for PHPActor
-Plug 'https://github.com/phpactor/ncm2-phpactor'
-
 " Generates PHP doc blocks
 Plug 'https://github.com/tobyS/pdv'
 Plug 'https://github.com/tobyS/vmustache'
@@ -71,9 +72,9 @@ nnoremap <C-h> :call pdv#DocumentWithSnip()<CR>
 
 " Set of completiong and refactoring tools
 Plug 'https://github.com/phpactor/phpactor', {'do': ':!composer install -d ~/.local/share/nvim/plugged/phpactor'}
-autocmd FileType php setlocal omnifunc=phpactor#Complete
+" autocmd FileType php setlocal omnifunc=phpactor#Complete
 let g:phpactorOmniError = v:true
-autocmd BufEnter * call ncm2#enable_for_buffer()
+" autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone ",noselect
 " Include use statement
 " nmap <Leader>u :call phpactor#UseAdd()<CR>
@@ -227,6 +228,9 @@ let g:ale_php_phpstan_executable = 'phpstan'
 let g:ale_php_phpstan_use_global = 1
 let g:ale_php_phpstan_level = 7
 let g:ale_fix_on_save = 1
+
+" TypeScript syntax highlighting
+Plug 'https://github.com/HerringtonDarkholme/yats.vim'
 
 call plug#end()
 
