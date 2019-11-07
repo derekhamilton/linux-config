@@ -11,14 +11,14 @@ Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
 " fuzzy file search
 Plug 'https://github.com/kien/ctrlp.vim'
 " search project files by name
-nnoremap <A-h> <C-o>
+" nnoremap <A-h> <C-o>
 nnoremap <A-l> <C-i>
-let g:ctrlp_map = '<C-o>'
+let g:ctrlp_map = '<A-x>'
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/files/*,*/photoArchive/*,*/node_modules/*,*/dump/*,*/_private/*
 " Search file names in open buffers
-nmap <C-l> :CtrlPBuffer<CR>
+" nmap <C-l> :CtrlPBuffer<CR>
 
 " HTML expansion to full tags
 " e.g. div.container>span.label>a.link<C-y>,
@@ -47,6 +47,32 @@ nmap <Leader>g :Rg
 nmap <Leader>G :Rg <C-r>=expand("<cword>")<CR><CR>
 " show list of marks
 nmap <C-m> :Marks<CR>
+" files tracked by git
+nmap <C-o> :GFiles<CR>
+" current buffers
+nmap <C-l> :Buffers<CR>
+
+let $FZF_DEFAULT_OPTS='--layout=reverse'
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+
+function! FloatingFZF()
+  let buf = nvim_create_buf(v:false, v:true)
+  call setbufvar(buf, '&signcolumn', 'no')
+
+  let height = &lines - 30
+  let width = float2nr(&columns - (&columns * 3 / 10))
+  let col = float2nr((&columns - width) / 2)
+
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': 5,
+        \ 'col': col,
+        \ 'width': width,
+        \ 'height': height
+        \ }
+
+  call nvim_open_win(buf, v:true, opts)
+endfunction
 
 " Persistent macro storage
 Plug 'https://github.com/vim-scripts/marvim'
@@ -184,6 +210,7 @@ Plug 'https://github.com/tpope/vim-fugitive'
 
 " Tag management
 Plug 'https://github.com/ludovicchabant/vim-gutentags'
+let g:gutentags_exclude_filetypes = ['gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail', 'git']
 
 " Highlight indentations
 Plug 'https://github.com/nathanaelkane/vim-indent-guides'
