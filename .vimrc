@@ -36,6 +36,7 @@ Plug 'https://github.com/wincent/ferret'
 let g:FerretJob=0
 
 " Command line fuzzy finder
+Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'https://github.com/junegunn/fzf.vim'
 set rtp+=~/.fzf
 let g:fzf_files_options = '--preview "(bat --style=numbers --color=always {}) 2> /dev/null | head -'.&lines.'"'
@@ -259,6 +260,8 @@ let g:ale_fix_on_save = 1
 " TypeScript syntax highlighting
 Plug 'https://github.com/HerringtonDarkholme/yats.vim'
 
+Plug 'cormacrelf/vim-colors-github'
+
 call plug#end()
 
 
@@ -296,6 +299,8 @@ let g:jellybeans_overrides = {
 \              'ctermfg': 'Black', 'ctermbg': 'Yellow',
 \              'attr': 'bold' },
 \}
+
+"colorscheme github
 
 "hi CursorLine cterm=none ctermbg=black
 hi CursorLine cterm=none ctermbg=black
