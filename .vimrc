@@ -260,8 +260,6 @@ let g:ale_fix_on_save = 1
 " TypeScript syntax highlighting
 Plug 'https://github.com/HerringtonDarkholme/yats.vim'
 
-Plug 'cormacrelf/vim-colors-github'
-
 call plug#end()
 
 
@@ -299,8 +297,6 @@ let g:jellybeans_overrides = {
 \              'ctermfg': 'Black', 'ctermbg': 'Yellow',
 \              'attr': 'bold' },
 \}
-
-"colorscheme github
 
 "hi CursorLine cterm=none ctermbg=black
 hi CursorLine cterm=none ctermbg=black
