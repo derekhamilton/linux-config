@@ -36,6 +36,7 @@ Plug 'https://github.com/wincent/ferret'
 let g:FerretJob=0
 
 " Command line fuzzy finder
+Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'https://github.com/junegunn/fzf.vim'
 set rtp+=~/.fzf
 let g:fzf_files_options = '--preview "(bat --style=numbers --color=always {}) 2> /dev/null | head -'.&lines.'"'
