@@ -222,7 +222,13 @@ let g:indent_guides_guide_size = 1
 Plug 'https://github.com/mxw/vim-jsx'
 
 " Faster paren matching
-Plug 'https://github.com/itchyny/vim-parenmatch'
+" Plug 'https://github.com/itchyny/vim-parenmatch'
+Plug 'https://github.com/luochen1990/rainbow'
+let g:rainbow_active = 1
+
+" fix standard matchparen plugin not loading
+unlet loaded_matchparen
+runtime plugin/matchparen.vim
 
 " use statement import and alphabetize
 Plug 'https://github.com/arnaud-lb/vim-php-namespace'
@@ -255,6 +261,8 @@ let g:ale_php_phpstan_executable = 'phpstan'
 let g:ale_php_phpstan_use_global = 1
 let g:ale_php_phpstan_level = 7
 let g:ale_fix_on_save = 1
+nmap <silent> <leader>aj :ALENext<cr>
+nmap <silent> <leader>ak :ALEPrevious<cr>
 
 " TypeScript syntax highlighting
 Plug 'https://github.com/HerringtonDarkholme/yats.vim'
