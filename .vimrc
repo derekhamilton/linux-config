@@ -35,6 +35,9 @@ Plug 'https://github.com/wincent/ferret'
 " Prevents errors from too many buffers
 let g:FerretJob=0
 
+" Load neovim in textareas in the browser
+Plug 'glacambre/firenvim', { 'do': function('firenvim#install') }
+
 " Command line fuzzy finder
 Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'https://github.com/junegunn/fzf.vim'
@@ -228,8 +231,8 @@ Plug 'https://github.com/luochen1990/rainbow'
 let g:rainbow_active = 1
 
 " fix standard matchparen plugin not loading
-unlet loaded_matchparen
-runtime plugin/matchparen.vim
+" unlet loaded_matchparen
+" runtime plugin/matchparen.vim
 
 " use statement import and alphabetize
 Plug 'https://github.com/arnaud-lb/vim-php-namespace'

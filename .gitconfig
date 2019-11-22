@@ -13,9 +13,9 @@
 [difftool "default-difftool"]
   cmd = nvim -f '+next' '+execute \"DirDiff\" argv(0) argv(1)' $LOCAL $REMOTE
 [diff]
-    tool = bcompare
+    tool = vimdiff
+    #tool = bcompare
     #tool = meld
-    #tool = vimdiff
     #tool = default-difftool
 [difftool]
     prompt = true
@@ -49,3 +49,6 @@
     markEmptyLines = false
 [pager]
     log = nvim -R -c 'set filetype=git nowrap' -
+[user]
+	email = derek@dhamilton.codes
+	name = Derek Hamilton

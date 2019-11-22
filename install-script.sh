@@ -5,7 +5,6 @@ mkdir ~/bin
 # repo installs
 sudo apt-get update
 sudo apt-get install awesome
-sudo apt-get install python-neovim
 sudo apt-get install parcellite
 sudo apt-get install git
 sudo apt-get install leafpad
@@ -27,8 +26,13 @@ sudo apt-get install i3lock
 sudo apt-get install scrot
 sudo apt-get install convert
 
+# vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 # kitty terminal
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+mv ~/.local/kitty.app ~/bin/kitty
 
 # php-cs-fixer
 wget https://cs.symfony.com/download/php-cs-fixer-v2.phar -O ~/bin/php-cs-fixer

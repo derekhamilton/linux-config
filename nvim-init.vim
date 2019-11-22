@@ -1,4 +1,12 @@
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
-let g:loaded_matchparen = 1
 source ~/.vimrc
+
+let g:firenvim_config = {
+    \ 'localSettings': {
+        \ '.*': {
+            \ 'selector': 'textarea, div[role="textbox"]',
+            \ 'priority': 0,
+        \ }
+    \ }
+\ }
