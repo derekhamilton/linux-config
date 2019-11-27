@@ -53,11 +53,11 @@ if [ -d ~/.config/nvim ]; then
     ln -s "$DIR/nvim-init.vim" "~/.config/nvim/init.vim"
 fi
 
-if [ -f ~/.config/kitty/kitty.conf ]; then
-    mv ~/.config/kitty/kitty.conf ~/.config/kitty/kitty.conf.bak
+if [ -f ~/.config/alacritty/alacritty.yml ]; then
+    mv ~/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml.bak
 fi
-if [ -d ~/.config/kitty ]; then
-    ln -s "$DIR/kitty.conf" "~/.config/kitty/kitty.conf"
+if [ -d ~/.config/alacritty ]; then
+    ln -s "$DIR/alacritty.yml" ~/.config/alacritty/alacritty.yml
 fi
 
 if [ -f ~/.config/awesome/rc.lua ]; then

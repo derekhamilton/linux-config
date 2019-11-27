@@ -25,14 +25,21 @@ sudo apt-get install mycli
 sudo apt-get install i3lock
 sudo apt-get install scrot
 sudo apt-get install convert
+sudo apt-get install python3
+sudo apt-get install python3-pip
+
+# terminal font
+cd ~/.local/share/fonts && git clone https://github.com/sunaku/tamzen-font.git
+xset +fp ~/.local/share/fonts/tamzen-font/bdf
+xset fp rehash
 
 # vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# kitty terminal
-curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
-mv ~/.local/kitty.app ~/bin/kitty
+# alacritty terminal
+sudo add-apt-repository ppa:mmstick76/alacritty
+sudo apt-get install alacritty
 
 # php-cs-fixer
 wget https://cs.symfony.com/download/php-cs-fixer-v2.phar -O ~/bin/php-cs-fixer
@@ -59,8 +66,8 @@ sudo cp /etc/xdg/awesome ~/.config/
 git clone --recursive https://github.com/lcpz/awesome-copycats.git
 mv -bv awesome-copycats/* ~/.config/awesome && rm -rf awesome-copycats
 
-# git-gud CLI tools
-git clone git@github.com:derekhamilton/git-gud.git ~/applications/git-gud
+# git-gopher CLI tools
+pip3 install git-gopher
 
 # defaults
 sudo update-alternatives --config x-terminal-emulator

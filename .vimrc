@@ -82,7 +82,7 @@ endfunction
 Plug 'https://github.com/vim-scripts/marvim'
 
 " More detail on matching bracket line
-Plug 'https://github.com/vim-scripts/matchparenpp'
+" Plug 'https://github.com/vim-scripts/matchparenpp'
 
 " Buffer sidebar nav
 Plug 'https://github.com/fholgado/minibufexpl.vim'
@@ -229,6 +229,7 @@ Plug 'https://github.com/mxw/vim-jsx'
 " Plug 'https://github.com/itchyny/vim-parenmatch'
 Plug 'https://github.com/luochen1990/rainbow'
 let g:rainbow_active = 1
+let g:rainbow_conf = { 'guifgs': ['yellow', 'lightgreen', 'magenta', 'cyan'], 'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'] }
 
 " fix standard matchparen plugin not loading
 " unlet loaded_matchparen
@@ -260,7 +261,7 @@ Plug 'https://github.com/w0rp/ale'
 let g:ale_php_php_cs_fixer_executable='~/bin/php-cs-fixer'
 let g:ale_fixers = {'php': ['php_cs_fixer']}
 let g:ale_php_phpcs_standard = '~/psr2-custom.xml'
-let g:ale_php_phpmd_ruleset = 'codesize,controversial,design,unusedcode'
+let g:ale_php_phpmd_ruleset = 'unusedcode'
 let g:ale_php_phpstan_executable = 'phpstan'
 let g:ale_php_phpstan_use_global = 1
 let g:ale_php_phpstan_level = 7
