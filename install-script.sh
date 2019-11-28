@@ -28,6 +28,11 @@ sudo apt-get install convert
 sudo apt-get install python3
 sudo apt-get install python3-pip
 
+# diff-so-fancy for git diffs
+wget https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy
+chmod +x ./diff-so-fancy
+mv ./diff-so-fancy ~/bin/
+
 # terminal font
 cd ~/.local/share/fonts && git clone https://github.com/sunaku/tamzen-font.git
 xset +fp ~/.local/share/fonts/tamzen-font/bdf
