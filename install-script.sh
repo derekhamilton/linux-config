@@ -55,6 +55,11 @@ chsh -s zsh
 # required for neovim clipboard support
 sudo apt-get install xclip
 
+# neovim
+curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+chmod u+x nvim.appimage
+mv ./nvim.appimage ~/bin/nvim
+
 # build tools
 sudo apt-get install cmake
 sudo apt-get install libtool-bin
