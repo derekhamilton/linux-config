@@ -297,6 +297,7 @@ set noeol
 scriptencoding utf-8
 set encoding=utf-8
 set nofoldenable
+set noshowmatch     " prevent <?php matching against first method call
 
 " Rename CTRL+C to perform an escape instaed a literal CTRL+C
 imap <C-c> <C-[>
