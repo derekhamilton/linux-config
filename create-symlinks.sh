@@ -53,6 +53,13 @@ if [ -d ~/.config/nvim ]; then
     ln -s "$DIR/nvim-init.vim" "~/.config/nvim/init.vim"
 fi
 
+if [ -f ~/.config/nvim/coc-settings.json ]; then
+    mv ~/.config/nvim/coc-settings.json ~/.config/nvim/coc-setitngs.json.bak
+fi
+if [ -d ~/.config/nvim ]; then
+    ln -s "$DIR/coc-settings.json" "~/.config/nvim/coc-settings.json"
+fi
+
 if [ -f ~/.config/alacritty/alacritty.yml ]; then
     mv ~/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml.bak
 fi
