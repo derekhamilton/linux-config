@@ -148,9 +148,10 @@ zstyle ':completion:*' file-sort modification reverse
 export PATH="$PATH:$HOME/applications/bin"
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 export PATH="$PATH:$HOME/.npm-global/bin"
-export PATH="$PATH:$HOME/applications/git-gud/src"
+export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
 export TERM=xterm
-export EDITOR="$HOME/applications/neovim/build/bin/nvim"
+export EDITOR="$HOME/bin/nvim"
 
 export COMPOSER_DISABLE_XDEBUG_WARN=1
 

@@ -84,7 +84,6 @@ scrolling:
   # to allow mouse scrolling for applications like `man`.
   #
   # Specifying `0` will disable faux scrolling.
-  faux_multiplier: 3
 
   # Scroll to the bottom when new text is written to the terminal.
   auto_scroll: false
@@ -102,11 +101,11 @@ tabspaces: 8
 font:
   # Normal (roman) font face
   normal:
-    family: TamzenForPowerline
+    family: Tamzen
   bold:
-    family: TamzenForPowerline
+    family: Tamzen
   italic:
-    family: TamzenForPowerline
+    family: Tamzen
   #normal:
     # Font family
     #
