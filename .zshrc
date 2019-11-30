@@ -25,14 +25,9 @@ ZSH_THEME="amuse"
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
 
-# Uncomment the following line to disable auto-setting terminal title.
-# Set the console title to the current working directory
+# Set the console title to always be the current working directory
 DISABLE_AUTO_TITLE="true"
-case $TERM in
-  xterm*)
-    precmd () {print -Pn "\e]0;%~\a"}
-    ;;
-esac
+precmd () {print -Pn "\e]0;%~\a"}
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
