@@ -146,7 +146,7 @@ Plug 'https://github.com/2072/PHP-Indenting-for-VIm'
 
 " Tab completion
 Plug 'https://github.com/ervandew/supertab'
-vmap <C-t> :Tab /=
+let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
 
 " Syntax checking
 Plug 'https://github.com/vim-syntastic/syntastic'
@@ -172,6 +172,7 @@ Plug 'mtscout6/syntastic-local-eslint.vim'
 " Align Consecutive Assignments (equal signs)
 " visual highlight then :Tab /=<CR>
 Plug 'https://github.com/godlygeek/tabular'
+vmap <C-t> :Tab /=
 
 " Sidebar for function names, vars, etc
 Plug 'https://github.com/majutsushi/tagbar'
