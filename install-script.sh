@@ -79,6 +79,9 @@ mv -bv awesome-copycats/* ~/.config/awesome && rm -rf awesome-copycats
 # git-gopher CLI tools
 pip3 install git-gopher
 
+# rofi-browser-bookmarks to use rofi to open bookmarks
+pip3 install rofi-browser-bookmarks
+
 # defaults
 sudo update-alternatives --config x-terminal-emulator
 sudo update-alternatives --config editor

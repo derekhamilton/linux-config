@@ -273,8 +273,8 @@ globalkeys = gears.table.join(
         end,
         {description = "focus previous by index", group = "client"}
     ),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
-              {description = "show main menu", group = "awesome"}),
+    -- awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
+    --          {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
@@ -358,7 +358,8 @@ globalkeys = gears.table.join(
     awful.key({ modkey, }, "r", function () awful.spawn.with_shell("rofi -show run") end),
     -- awful.key({ modkey, }, "l", function () awful.spawn.with_shell('rofi -combi-modi window,tabs -show combi -modi tabs:"python3 '..os.getenv("HOME")..'/applications/rofi-firefox-tabs/script/tabs.py"') end)
     awful.key({ modkey, }, "l", function () awful.spawn.with_shell('rofi -show window') end),
-    -- awful.key({ "Control", modkey, }, "n", function () awful.spawn.with_shell('google-chrome "$(cat '..os.getenv("HOME")..'/.config/surfraw/bookmarks | sed \'/^$/d\' | sed \'/^#/d\' | sed \'/^//d\' | sort -n | rofi -lines 9 -font "Iceberg 13" -dmenu -mesg "Add new bookmarks at ~/.config/surfraw/bookmarks" -i -p "rofi-surfraw-bookmarks: " | awk -F\' \' \'{print $2}\')"') end),
+    awful.key({ modkey, }, "b", function () awful.spawn.with_shell(os.getenv("HOME")..'/.local/bin/rofi-browser-bookmarks google-chrome') end),
+    awful.key({ modkey, }, "w", function () awful.spawn.with_shell(os.getenv("HOME")..'/.local/bin/rofi-browser-bookmarks google-chrome Work') end),
     awful.key({ "Control", modkey, }, "s", function () awful.spawn.with_shell('systemctl suspend') end),
     awful.key({ "Control", modkey, }, "l", function () awful.spawn.with_shell('scrot /tmp/screenshot.png; convert /tmp/screenshot.png -blur 0x5 /tmp/screenshotblur.png; i3lock -i /tmp/screenshotblur.png;') end)
 )
