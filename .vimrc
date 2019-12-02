@@ -146,7 +146,7 @@ Plug 'https://github.com/2072/PHP-Indenting-for-VIm'
 
 " Tab completion
 Plug 'https://github.com/ervandew/supertab'
-vmap <C-t> :Tab /=
+let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
 
 " Syntax checking
 Plug 'https://github.com/vim-syntastic/syntastic'
@@ -172,6 +172,7 @@ Plug 'mtscout6/syntastic-local-eslint.vim'
 " Align Consecutive Assignments (equal signs)
 " visual highlight then :Tab /=<CR>
 Plug 'https://github.com/godlygeek/tabular'
+vmap <C-t> :Tab /=
 
 " Sidebar for function names, vars, etc
 Plug 'https://github.com/majutsushi/tagbar'
@@ -202,6 +203,10 @@ let g:vdebug_options = {
 
 " Syntax highlighting for Blade templates
 Plug 'https://github.com/jwalton512/vim-blade'
+
+" Close buffers without closing the window
+Plug 'https://github.com/moll/vim-bbye'
+nmap <Leader>q :Bdelete<CR>
 
 " Vim to character in file
 Plug 'https://github.com/easymotion/vim-easymotion'
@@ -255,6 +260,8 @@ Plug 'https://github.com/adoy/vim-php-refactoring-toolbox'
 Plug 'https://github.com/connorholyday/vim-snazzy'
 Plug 'https://github.com/NLKNguyen/papercolor-theme'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'kyoz/purify', { 'rtp': 'vim' }
+Plug 'https://github.com/cormacrelf/vim-colors-github'
 
 " async linting
 Plug 'https://github.com/w0rp/ale'
@@ -298,18 +305,20 @@ scriptencoding utf-8
 set encoding=utf-8
 set nofoldenable
 set noshowmatch     " prevent <?php matching against first method call
+set nomodeline
 
 " Rename CTRL+C to perform an escape instaed a literal CTRL+C
 imap <C-c> <C-[>
 
 " Set theme
 colorscheme snazzy
+" colorscheme purify
 hi Normal guibg=#202020
-let g:jellybeans_overrides = {
-\    'Todo': { 'guifg': '303030', 'guibg': 'f0f000',
-\              'ctermfg': 'Black', 'ctermbg': 'Yellow',
-\              'attr': 'bold' },
-\}
+" let g:jellybeans_overrides = {
+" \    'Todo': { 'guifg': '303030', 'guibg': 'f0f000',
+" \              'ctermfg': 'Black', 'ctermbg': 'Yellow',
+" \              'attr': 'bold' },
+" \}
 
 "hi CursorLine cterm=none ctermbg=black
 hi CursorLine cterm=none ctermbg=black

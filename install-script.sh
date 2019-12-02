@@ -4,29 +4,36 @@ mkdir ~/bin
 
 # repo installs
 sudo apt-get update
-sudo apt-get install awesome
-sudo apt-get install parcellite
-sudo apt-get install git
-sudo apt-get install leafpad
-sudo apt-get install kiki
-sudo apt-get install apache2
-sudo apt-get install php php-intl php-bcmath php-xml php-mbstring php-curl php-imap php-zip php-mysql
-sudo apt-get install mysql-server
-sudo apt-get install ctags
-sudo apt-get install curl
-sudo apt-get install vivaldi
-sudo apt-get install firefox
-sudo apt-get install google-chrome
-sudo apt-get install rofi
-sudo apt-get install flameshot
-sudo apt-get install unclutter
-sudo apt-get install nm-applet
-sudo apt-get install mycli
-sudo apt-get install i3lock
-sudo apt-get install scrot
-sudo apt-get install convert
-sudo apt-get install python3
-sudo apt-get install python3-pip
+sudo apt-get install -y awesome
+sudo apt-get install -y parcellite
+sudo apt-get install -y git
+sudo apt-get install -y leafpad
+sudo apt-get install -y kiki
+sudo apt-get install -y apache2
+sudo apt-get install -y php php-intl php-bcmath php-xml php-mbstring php-curl php-imap php-zip php-mysql
+sudo apt-get install -y mysql-server
+sudo apt-get install -y ctags
+sudo apt-get install -y curl
+sudo apt-get install -y vivaldi
+sudo apt-get install -y firefox
+sudo apt-get install -y google-chrome
+sudo apt-get install -y rofi
+sudo apt-get install -y flameshot
+sudo apt-get install -y unclutter
+sudo apt-get install -y nm-applet
+sudo apt-get install -y mycli
+sudo apt-get install -y i3lock
+sudo apt-get install -y scrot
+sudo apt-get install -y convert
+sudo apt-get install -y python3
+sudo apt-get install -y python3-pip
+sudo apt-get install -y vlc
+sudo apt-get install -y ffmpeg
+
+# Google Chrome browser
+wget https://dl-ssl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i ./google-chrome-stable_current_amd64.deb
+rm ./google-chrome-stable_current_amd64.deb
 
 # diff-so-fancy for git diffs
 wget https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy
@@ -34,9 +41,17 @@ chmod +x ./diff-so-fancy
 mv ./diff-so-fancy ~/bin/
 
 # terminal font
+mkdir -p ~/.local/share/fonts
 cd ~/.local/share/fonts && git clone https://github.com/sunaku/tamzen-font.git
 xset +fp ~/.local/share/fonts/tamzen-font/bdf
 xset fp rehash
+sudo rm /etc/fonts/conf.d/70-no-bitmaps.conf
+
+# powerline font symbols
+wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
+wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+mv PowerlineSymbols.otf ~/.local/share/fonts
+sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/
 
 # vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -44,21 +59,26 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 # alacritty terminal
 sudo add-apt-repository ppa:mmstick76/alacritty
-sudo apt-get install alacritty
+sudo apt-get install -y alacritty
 
 # php-cs-fixer
 wget https://cs.symfony.com/download/php-cs-fixer-v2.phar -O ~/bin/php-cs-fixer
 
 # zsh installs
-sudo apt-get install zsh
-sudo apt-get install fzf
+sudo apt-get install -y zsh
+sudo apt-get install -y fzf
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # use zsh as default shell
 chsh -s zsh
 
+# install neovim
 # required for neovim clipboard support
-sudo apt-get install xclip
+sudo apt-get install -y xclip
+curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+chmod u+x nvim.appimage
+mv ./nvim.appimage ~/bin/nvim
+pip3 install neovim
 
 # neovim
 curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
@@ -66,10 +86,10 @@ chmod u+x nvim.appimage
 mv ./nvim.appimage ~/bin/nvim
 
 # build tools
-sudo apt-get install cmake
-sudo apt-get install libtool-bin
-sudo apt-get install m4
-sudo apt-get install automake
+sudo apt-get install -y cmake
+sudo apt-get install -y libtool-bin
+sudo apt-get install -y m4
+sudo apt-get install -y automake
 
 # awesome settings
 sudo cp /etc/xdg/awesome ~/.config/
@@ -87,7 +107,7 @@ sudo update-alternatives --config x-terminal-emulator
 sudo update-alternatives --config editor
 
 # docker install
-sudo apt-get install \
+sudo apt-get install -y \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -101,7 +121,7 @@ sudo add-apt-repository \
    stable"
 
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
 echo "127.0.1.1    mysql redis" | sudo tee -a /etc/hosts
 
