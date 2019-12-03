@@ -1,4 +1,4 @@
 {
-    "python.jediEnabled": false
+    "python.jediEnabled": false,
+    "intelephense.licenceKey": "your licence key"
 }
-
