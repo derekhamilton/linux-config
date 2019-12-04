@@ -7,7 +7,11 @@ let &packpath = &runtimepath
 "else
 "    source ~/.vimrc
 "endif
-source ~/.vimrc
+if exists('g:started_by_firenvim')
+  source ~/.vimrc-firenvim
+else
+  source ~/.vimrc
+endif
 
 let g:firenvim_config = {
     \ 'localSettings': {
