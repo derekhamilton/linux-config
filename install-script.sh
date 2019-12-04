@@ -29,6 +29,7 @@ sudo apt-get install -y python3
 sudo apt-get install -y python3-pip
 sudo apt-get install -y vlc
 sudo apt-get install -y ffmpeg
+sudo apt-get install -y xcompmgr
 
 # Google Chrome browser
 wget https://dl-ssl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -41,6 +42,8 @@ chmod +x ./diff-so-fancy
 mv ./diff-so-fancy ~/bin/
 
 # terminal font
+## depending on the system, may need the old version
+## https://github.com/sunaku/tamzen-font/archive/Tamzen-1.11.1.zip
 mkdir -p ~/.local/share/fonts
 cd ~/.local/share/fonts && git clone https://github.com/sunaku/tamzen-font.git
 xset +fp ~/.local/share/fonts/tamzen-font/bdf
@@ -58,8 +61,14 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # alacritty terminal
-sudo add-apt-repository ppa:mmstick76/alacritty
-sudo apt-get install -y alacritty
+sudo apt install libfreetype6-dev libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
+cd ~/applications
+git clone https://github.com/jwilm/alacritty.git
+cd alacritty
+cargo build --release
+ln -s ~/applications/alacritty/target/release/alacritty ~/bin/
+sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator ~/bin/alacritty 50
+sudo update-alternatives --config x-terminal-emulator
 
 # php-cs-fixer
 wget https://cs.symfony.com/download/php-cs-fixer-v2.phar -O ~/bin/php-cs-fixer
@@ -84,6 +93,7 @@ pip3 install neovim
 curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 chmod u+x nvim.appimage
 mv ./nvim.appimage ~/bin/nvim
+sudo update-alternatives --config editor
 
 # build tools
 sudo apt-get install -y cmake
@@ -101,10 +111,6 @@ pip3 install git-gopher
 
 # rofi-browser-bookmarks to use rofi to open bookmarks
 pip3 install rofi-browser-bookmarks
-
-# defaults
-sudo update-alternatives --config x-terminal-emulator
-sudo update-alternatives --config editor
 
 # docker install
 sudo apt-get install -y \
