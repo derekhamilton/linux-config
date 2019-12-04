@@ -7,6 +7,11 @@ Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
 " :CocInstall coc-phpls
 " For TypeScript:
 " :CocInstall coc-tsserver
+nmap <C-i> <Plug>(coc-definition)
+nmap <Leader>rn <Plug>(coc-rename)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " fuzzy file search
 Plug 'https://github.com/kien/ctrlp.vim'
@@ -113,7 +118,7 @@ nmap <Leader>mm :call phpactor#ContextMenu()<CR>
 " Invoke the navigation menu
 nmap <Leader>nn :call phpactor#Navigate()<CR>
 " Goto definition of class or class member under the cursor
-nmap <C-i> :call phpactor#GotoDefinition()<CR>
+" nmap <C-i> :call phpactor#GotoDefinition()<CR>
 " Show brief information about the symbol under the cursor
 nmap <Leader>K :call phpactor#Hover()<CR>
 " Transform the classes in the current file
