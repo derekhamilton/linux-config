@@ -16,6 +16,7 @@ require("awful.hotkeys_popup.keys")
 
 -- Load Debian menu entries
 local debian = require("debian.menu")
+local config = require("config")
 
 local function get_focused_screen()
     if client.focus == nil then
@@ -54,7 +55,7 @@ end
 -- Themes define colours, icons, font and wallpapers.
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.init(os.getenv("HOME").."/.config/awesome/themes/multicolor/theme.lua")
-beautiful.wallpaper = os.getenv("HOME").."/Pictures/stay-positive.jpg"
+beautiful.wallpaper = config.wallpaper
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
@@ -249,7 +250,6 @@ root.buttons(gears.table.join(
 ))
 -- }}}
 
-local config = require "config"
 -- {{{ Key bindings
 globalkeys = gears.table.join(
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,

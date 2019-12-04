@@ -31,13 +31,14 @@ name = Foo Bar
 email = foo@bar.com
 ~~~
 
-For `rc.lua` we need to create `~/.config/awesome/config.lua` to specify which screens map to which keybindings. For example,
+For `rc.lua` we need to create `~/.config/awesome/config.lua` to specify which screens map to which keybindings, and which wallpaper to use. For example,
 
 ~~~lua
 local config = {};
 config.screenJ = 1
 config.screenK = 3
 config.screenI = 2
+config.wallpaper = os.getenv("HOME").."/Pictures/wallpaper.jpg"
 
 return config
 ~~~
