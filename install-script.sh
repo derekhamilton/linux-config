@@ -72,6 +72,7 @@ sudo update-alternatives --config x-terminal-emulator
 
 # php-cs-fixer
 wget https://cs.symfony.com/download/php-cs-fixer-v2.phar -O ~/bin/php-cs-fixer
+chmod +x ~/bin/php-cs-fixer
 
 # zsh installs
 sudo apt-get install -y zsh
