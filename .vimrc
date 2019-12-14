@@ -311,14 +311,16 @@ set encoding=utf-8
 set nofoldenable
 set noshowmatch     " prevent <?php matching against first method call
 set nomodeline
+set termguicolors
 
 " Rename CTRL+C to perform an escape instaed a literal CTRL+C
 imap <C-c> <C-[>
 
 " Set theme
 colorscheme snazzy
-" colorscheme purify
 hi Normal guibg=#202020
+" colorscheme purify
+" hi Normal guibg=#2d313b
 " let g:jellybeans_overrides = {
 " \    'Todo': { 'guifg': '303030', 'guibg': 'f0f000',
 " \              'ctermfg': 'Black', 'ctermbg': 'Yellow',

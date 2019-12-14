@@ -157,3 +157,24 @@ sudo apt-get install -y battery-monitor
 
 # don't reset wallpaper when opening nautilus
 # https://askubuntu.com/questions/306362/when-i-run-nautilus-or-guake-from-awesome-wm-the-wallpaper-is-reverted-to-my-uni
+
+# lastpass-cli
+cd ~/applications
+git clone https://github.com/lastpass/lastpass-cli.git
+sudo apt-get --no-install-recommends -yqq install \
+  bash-completion \
+  build-essential \
+  cmake \
+  libcurl4  \
+  libcurl4-openssl-dev  \
+  libssl1.0.0 \
+  libssl-dev \
+  libxml2 \
+  libxml2-dev  \
+  pkg-config \
+  ca-certificates \
+  xclip
+
+cd lastpass-cli
+make
+sudo make install
