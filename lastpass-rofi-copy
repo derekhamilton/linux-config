@@ -1,0 +1,8 @@
+#!/bin/bash
+
+selected=$(lpass ls --color=never | rofi -dmenu)
+id=$(echo "$selected" | sed 's/.*\[id: \(.*\)\]/\1/g')
+
+if [ -n "$id" ]; then
+    lpass show --password "$id" | xclip
+fi

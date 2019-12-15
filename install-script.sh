@@ -30,6 +30,7 @@ sudo apt-get install -y python3-pip
 sudo apt-get install -y vlc
 sudo apt-get install -y ffmpeg
 sudo apt-get install -y xcompmgr
+sudo apt-get install -y ripgrep
 
 # Google Chrome browser
 wget https://dl-ssl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -61,7 +62,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # alacritty terminal
-sudo apt install libfreetype6-dev libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
+sudo apt-get install -y libfreetype6-dev libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
 cd ~/applications
 git clone https://github.com/jwilm/alacritty.git
 cd alacritty
@@ -133,7 +134,7 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 echo "127.0.1.1    mysql redis" | sudo tee -a /etc/hosts
 
 # nasc calculator
-sudo apt install vasac libgee-0.8-dev libgtk3.0-cil-dev libgranite-dev libsoup2.4-dev libgtksourceview-3.0-dev libqalculate-dev
+sudo apt-get install -y vasac libgee-0.8-dev libgtk3.0-cil-dev libgranite-dev libsoup2.4-dev libgtksourceview-3.0-dev libqalculate-dev
 mkdir ~/applications -p \
     && cd ~/applications \
     && git clone https://github.com/parnold-x/nasc.git \
@@ -152,7 +153,28 @@ sudo apt install qrazercfg-applet
 
 # for laptop
 sudo add-apt-repository ppa:maateen/battery-monitor -y
-sudo apt install battery-monitor
+sudo apt-get install -y battery-monitor
 
 # don't reset wallpaper when opening nautilus
 # https://askubuntu.com/questions/306362/when-i-run-nautilus-or-guake-from-awesome-wm-the-wallpaper-is-reverted-to-my-uni
+
+# lastpass-cli
+cd ~/applications
+git clone https://github.com/lastpass/lastpass-cli.git
+sudo apt-get --no-install-recommends -yqq install \
+  bash-completion \
+  build-essential \
+  cmake \
+  libcurl4  \
+  libcurl4-openssl-dev  \
+  libssl1.0.0 \
+  libssl-dev \
+  libxml2 \
+  libxml2-dev  \
+  pkg-config \
+  ca-certificates \
+  xclip
+
+cd lastpass-cli
+make
+sudo make install

@@ -82,3 +82,7 @@ fi
 if [ ! -f ~/bin/pasteimage ]; then
     ln -s "$DIR/pasteimage" ~/bin/pasteimage
 fi
+
+if [ ! -f ~/bin/lastpass-rofi-copy ]; then
+    ln -s "$DIR/lastpass-rofi-copy" ~/bin/lastpass-rofi-copy
+fi

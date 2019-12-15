@@ -360,6 +360,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey, }, "l", function () awful.spawn.with_shell('rofi -show window') end),
     awful.key({ modkey, }, "b", function () awful.spawn.with_shell(os.getenv("HOME")..'/.local/bin/rofi-browser-bookmarks google-chrome') end),
     awful.key({ modkey, }, "w", function () awful.spawn.with_shell(os.getenv("HOME")..'/.local/bin/rofi-browser-bookmarks google-chrome Work') end),
+    awful.key({ "Control", modkey, }, "p", function () awful.spawn.with_shell('lastpass-rofi-copy') end),
     awful.key({ "Control", modkey, }, "s", function () awful.spawn.with_shell('systemctl suspend') end),
     awful.key({ "Control", modkey, }, "l", function () awful.spawn.with_shell('scrot /tmp/screenshot.png; convert /tmp/screenshot.png -blur 0x5 /tmp/screenshotblur.png; i3lock -i /tmp/screenshotblur.png;') end)
 )
