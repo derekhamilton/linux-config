@@ -224,7 +224,8 @@ Plug 'https://github.com/tpope/vim-fugitive'
 
 " Tag management
 Plug 'https://github.com/ludovicchabant/vim-gutentags'
-let g:gutentags_exclude_filetypes = ['gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail', 'git']
+" let g:gutentags_exclude_filetypes = ['gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail', 'git']
+let g:gutentags_file_list_command = 'rg --files . vendor'
 
 " Highlight indentations
 Plug 'https://github.com/nathanaelkane/vim-indent-guides'
