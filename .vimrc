@@ -199,9 +199,12 @@ nnoremap <silent> <leader>A :ArgWrap<CR>
 
 " Debugger
 Plug 'https://github.com/vim-vdebug/vdebug'
-let g:vdebug_options = {
-      \ 'port' : 9000,
-      \}
+let g:vdebug_features = { 'max_children': 256 }
+let g:vdebug_options= {}
+let g:vdebug_options['port'] = 9001
+let g:vdebug_options['break_on_open'] = 0
+let g:vdebug_options['watch_window_style'] = 'compact'
+let g:vdebug_options['path_maps'] = { '/var/www': $HOME.'/www' }
 
 " Auto update ctags
 " Plug 'https://github.com/craigemery/vim-autotag'
@@ -414,6 +417,12 @@ hi User7 guifg=#ffffff  guibg=#810085   ctermfg=255 ctermbg=90
 hi User8 guifg=#ffffff  guibg=#880c0e   ctermfg=255 ctermbg=88   gui=bold
 hi User0 guifg=#ffffff  guibg=#094afe   ctermfg=255 ctermbg=27
 hi statusline ctermfg=255 ctermbg=237
+
+" vdebug line highlighting
+hi DbgBreakptLine guibg=#400040 ctermbg=113 ctermfg=244
+hi DbgBreakptSign guibg=#400040 ctermbg=113 ctermfg=244
+hi DbgCurrentLine guibg=#000000 ctermbg=none ctermfg=none
+hi DbgCurrentSign guibg=#000000 ctermbg=none ctermfg=red
 
 endif
 
