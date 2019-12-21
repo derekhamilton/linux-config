@@ -135,7 +135,7 @@ vmap <silent><Leader>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
 " vmap <silent><Leader>em :<C-U>call phpactor#ExtractMethod()<CR>
 
 " Indentation rules
-Plug 'https://github.com/2072/PHP-Indenting-for-VIm'
+" Plug 'https://github.com/2072/PHP-Indenting-for-VIm'
 
 " Python syntax rules, linting, etc.
 " Plug 'https://github.com/python-mode/python-mode.git'
