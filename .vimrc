@@ -15,6 +15,7 @@ nmap <silent> gr <Plug>(coc-references)
 
 " fuzzy file search
 Plug 'https://github.com/kien/ctrlp.vim'
+
 " search project files by name
 " nnoremap <A-h> <C-o>
 nnoremap <A-l> <C-i>
@@ -82,6 +83,10 @@ function! FloatingFZF()
 
   call nvim_open_win(buf, v:true, opts)
 endfunction
+
+" disable manual navigation to force movement commands
+Plug 'https://github.com/wikitopian/hardmode'
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
 " Persistent macro storage
 Plug 'https://github.com/vim-scripts/marvim'
@@ -271,6 +276,10 @@ Plug 'https://github.com/NLKNguyen/papercolor-theme'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'kyoz/purify', { 'rtp': 'vim' }
 Plug 'https://github.com/cormacrelf/vim-colors-github'
+
+" change surrounding characters
+" ex. change 'foo' to "foo" => cs'"
+Plug 'https://github.com/tpope/vim-surround'
 
 " async linting
 Plug 'https://github.com/w0rp/ale'
