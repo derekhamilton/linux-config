@@ -1,3 +1,4 @@
+" ---------------- Start Plug Installs ----------------------------------
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Autocompletion client for use with language servers
@@ -186,7 +187,7 @@ nmap <Leader>q :Bdelete<CR>
 Plug 'https://github.com/easymotion/vim-easymotion'
 nmap <C-s> <Plug>(easymotion-s2)
 nmap <C-j> <Leader><Leader>s
-nmap t <Plug>(easymotion-t2)
+nmap <C-t> <Plug>(easymotion-t2)
 
 " Git wrapper
 Plug 'https://github.com/tpope/vim-fugitive'
@@ -253,9 +254,7 @@ nmap <silent> <leader>ak :ALEPrevious<cr>
 Plug 'https://github.com/HerringtonDarkholme/yats.vim'
 
 call plug#end()
-
-
-
+" ---------------- End Plug Installs ----------------------------------
 
 " ---------------- Standard vim config --------------------------------
 set background=dark
@@ -282,33 +281,18 @@ set nofoldenable
 set noshowmatch     " prevent <?php matching against first method call
 set nomodeline
 set termguicolors
+set number
+set relativenumber
 
 " Rename CTRL+C to perform an escape instaed a literal CTRL+C
 imap <C-c> <C-[>
 
 " Set theme
 colorscheme snazzy
-hi Normal guibg=#202020
-" colorscheme purify
-" hi Normal guibg=#2d313b
-" let g:jellybeans_overrides = {
-" \    'Todo': { 'guifg': '303030', 'guibg': 'f0f000',
-" \              'ctermfg': 'Black', 'ctermbg': 'Yellow',
-" \              'attr': 'bold' },
-" \}
+highlight Normal guibg=#202020
 
 "hi CursorLine cterm=none ctermbg=black
-hi CursorLine cterm=none ctermbg=black
-
-if &diff
-
-" if doing diffs the only config should be showing line numbers
-set nu
-
-else
-
-set nu
-set rnu " relative line numbers
+highlight CursorLine cterm=none ctermbg=black
 
 " Left Padding
 " set foldcolumn=1
@@ -321,9 +305,6 @@ autocmd BufRead,BufNewFile      *.src set syntax=javascript
 autocmd BufRead,BufNewFile      *.tpl set syntax=php
 autocmd BufRead,BufNewFile      *.handlebars set syntax=html
 "autocmd BufReadPost             *.php if &ma && ! &ro | retab | endif
-
-" Use 256 color mode
-" set t_Co=256
 
 "highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -353,7 +334,6 @@ set statusline+=%8#warningmsg#
 " set statusline+=%8{SyntasticStatuslineFlag()}
 "set statusline+=%0*\ %y%=%{v:register}\                  "Current paste register
 "set statusline+=%6*\ \ %m%r%w\ %P\ \                     "Modified? Readonly? Top/bot.
-
 
 function! HighlightSearch()
     return &hls ? 'H' : ''
@@ -390,8 +370,6 @@ hi DbgBreakptSign guibg=#400040 ctermbg=113 ctermfg=244
 hi DbgCurrentLine guibg=#000000 ctermbg=none ctermfg=none
 hi DbgCurrentSign guibg=#000000 ctermbg=none ctermfg=red
 
-endif
-
 " Padawan
 " let g:padawan#composer_command = "/usr/local/bin/composer"
 
@@ -401,7 +379,7 @@ let g:omni_sql_no_default_maps = 1
 " Split, focus, open terminal and go to insert mode
 nmap <Leader>tm :vs<CR><C-w>l:term<CR>a
 
-" Closed search
+" Clear the current search
 nmap <C-_> :let @/=""<CR>
 
 " Convert MySQL table to CSV

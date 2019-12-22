@@ -16,6 +16,11 @@ if [ -f ~/.vimrc-firenvim ]; then
 fi
 ln -s "$DIR/.vimrc-firenvim" ~/.vimrc-firenvim
 
+if [ -f ~/.vimrc-diff ]; then
+    mv ~/.vimrc-diff ~/.vimrc-diff.bak
+fi
+ln -s "$DIR/.vimrc-diff" ~/.vimrc-diff
+
 if [ -f ~/.config/linux-config/psr2-custom.xml ]; then
     mv ~/.config/linux-config/psr2-custom.xml ~/.config/linux-config/psr2-custom.xml.bak
 fi
