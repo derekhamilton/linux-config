@@ -13,19 +13,6 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" fuzzy file search
-Plug 'https://github.com/kien/ctrlp.vim'
-
-" search project files by name
-" nnoremap <A-h> <C-o>
-nnoremap <A-l> <C-i>
-let g:ctrlp_map = '<A-x>'
-let g:ctrlp_max_files=0
-let g:ctrlp_max_depth=40
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/files/*,*/photoArchive/*,*/node_modules/*,*/dump/*,*/_private/*
-" Search file names in open buffers
-" nmap <C-l> :CtrlPBuffer<CR>
-
 " HTML expansion to full tags
 " e.g. div.container>span.label>a.link<C-y>,
 Plug 'https://github.com/mattn/emmet-vim'
@@ -91,9 +78,6 @@ autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 " Persistent macro storage
 Plug 'https://github.com/vim-scripts/marvim'
 
-" More detail on matching bracket line
-" Plug 'https://github.com/vim-scripts/matchparenpp'
-
 " Buffer sidebar nav
 Plug 'https://github.com/fholgado/minibufexpl.vim'
 let g:miniBufExplVSplit = 20
@@ -139,21 +123,6 @@ vmap <silent><Leader>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
 " Extract method from selection
 " vmap <silent><Leader>em :<C-U>call phpactor#ExtractMethod()<CR>
 
-" Indentation rules
-" Plug 'https://github.com/2072/PHP-Indenting-for-VIm'
-
-" Python syntax rules, linting, etc.
-" Plug 'https://github.com/python-mode/python-mode.git'
-
-" Set of tools
-" Plug 'https://github.com/spf13/PIV'
-"" PIV settings
-" let g:DisableAutoPHPFolding = 1
-" Remove some annoying stuff when use omni completion, checkout the vim help for more detail
-" set completeopt-=preview
-" set completeopt+=menu,menuone,noinsert,noselect
-" set shortmess+=c
-
 " Tab completion
 Plug 'https://github.com/ervandew/supertab'
 let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
@@ -177,6 +146,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_typescript_checkers = ['eslint']
 let g:syntastic_python_checkers=['flake8']
 
+" JavaScript linting
 Plug 'mtscout6/syntastic-local-eslint.vim'
 
 " Align Consecutive Assignments (equal signs)
@@ -191,12 +161,6 @@ autocmd VimEnter * nested :call tagbar#autoopen(1)
 set <F8>=[19~
 nmap <F8> :MBEClose<CR>:TagbarToggle<CR>:MBEOpen<CR>
 
-" TypeScript syntax
-Plug 'https://github.com/leafgarland/typescript-vim'
-
-" CTRL+o File finder
-Plug 'https://github.com/Shougo/unite.vim'
-
 " Multiline function arguments
 " <Leader>A to convert single line arguments to multiline
 Plug 'https://github.com/FooSoft/vim-argwrap/'
@@ -210,9 +174,6 @@ let g:vdebug_options['port'] = 9001
 let g:vdebug_options['break_on_open'] = 0
 let g:vdebug_options['watch_window_style'] = 'compact'
 let g:vdebug_options['path_maps'] = { '/var/www': $HOME.'/www' }
-
-" Auto update ctags
-" Plug 'https://github.com/craigemery/vim-autotag'
 
 " Syntax highlighting for Blade templates
 Plug 'https://github.com/jwalton512/vim-blade'
@@ -250,10 +211,6 @@ Plug 'https://github.com/luochen1990/rainbow'
 let g:rainbow_active = 1
 let g:rainbow_conf = { 'guifgs': ['yellow', 'lightgreen', 'magenta', 'cyan'], 'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'] }
 
-" fix standard matchparen plugin not loading
-" unlet loaded_matchparen
-" runtime plugin/matchparen.vim
-
 " use statement import and alphabetize
 Plug 'https://github.com/arnaud-lb/vim-php-namespace'
 function! IPhpInsertUse()
@@ -266,9 +223,6 @@ let g:php_namespace_sort_after_insert = 1
 
 " Refactoring tools
 Plug 'https://github.com/adoy/vim-php-refactoring-toolbox'
-
-" Don't think is relevant anymore
-" Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
 " Colorschemes
 Plug 'https://github.com/connorholyday/vim-snazzy'
@@ -295,6 +249,7 @@ nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
 
 " TypeScript syntax highlighting
+" Plug 'https://github.com/leafgarland/typescript-vim'
 Plug 'https://github.com/HerringtonDarkholme/yats.vim'
 
 call plug#end()
@@ -311,6 +266,8 @@ set tabstop=4
 set shiftwidth=4
 set autoindent
 set hlsearch
+set ignorecase
+set smartcase
 set cursorline
 set lazyredraw
 set exrc            " enable per-directory .vimrc files
