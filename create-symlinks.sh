@@ -6,20 +6,10 @@ if [ ! -d ~/.config/linux-config ]; then
     mkdir ~/.config/linux-config -p
 fi
 
-if [ -f ~/.vimrc ]; then
-    mv ~/.vimrc ~/.vimrc.bak
+if [ -f ~/config/linux-config/vim ]; then
+    mv ~/config/linux-config/vim ~/config/linux-config/vim.bak
 fi
-ln -s "$DIR/.vimrc" ~/.vimrc
-
-if [ -f ~/.vimrc-firenvim ]; then
-    mv ~/.vimrc-firenvim ~/.vimrc-firenvim.bak
-fi
-ln -s "$DIR/.vimrc-firenvim" ~/.vimrc-firenvim
-
-if [ -f ~/.vimrc-diff ]; then
-    mv ~/.vimrc-diff ~/.vimrc-diff.bak
-fi
-ln -s "$DIR/.vimrc-diff" ~/.vimrc-diff
+ln -s "$DIR/config/linux-config/vim" ~/config/linux-config/vim
 
 if [ -f ~/.config/linux-config/psr2-custom.xml ]; then
     mv ~/.config/linux-config/psr2-custom.xml ~/.config/linux-config/psr2-custom.xml.bak
@@ -60,7 +50,7 @@ if [ -f ~/.config/nvim/init.vim ]; then
     mv ~/.config/nvim/init.vim ~/.config/nvim/init.vim.bak
 fi
 if [ -d ~/.config/nvim ]; then
-    ln -s "$DIR/nvim-init.vim" "~/.config/nvim/init.vim"
+    ln -s "$DIR/vim/init.vim" "~/.config/nvim/init.vim"
 fi
 
 if [ -f ~/.config/nvim/coc-settings.json ]; then
