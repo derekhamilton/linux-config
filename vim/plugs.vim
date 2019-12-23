@@ -231,6 +231,11 @@ Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'kyoz/purify', { 'rtp': 'vim' }
 Plug 'https://github.com/cormacrelf/vim-colors-github'
 
+" two-letter single line search
+" s[two letters here]
+" ; to move to next instance
+Plug 'https://github.com/justinmk/vim-sneak'
+
 " change surrounding characters
 " ex. change 'foo' to "foo" => cs'"
 Plug 'https://github.com/tpope/vim-surround'

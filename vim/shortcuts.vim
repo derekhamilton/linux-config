@@ -33,3 +33,7 @@ function! FixOnSaveToggle()
     endif
 endfunction
 nmap <Leader>fos FixOnSaveToggle()
+
+" coc-prettier
+" Installed with :CocInstall coc-prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile

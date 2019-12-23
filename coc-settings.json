@@ -1,4 +1,7 @@
 {
     "python.jediEnabled": false,
-    "intelephense.licenceKey": "your licence key"
+    "intelephense.licenceKey": "your licence key",
+    "coc.preferences.formatOnSaveFiletypes": ["js", "ts", "jsx", "tsx", "css", "Markdown"],
+    "prettier.printWidth": 120,
+    "prettier.tabWidth": 4
 }
