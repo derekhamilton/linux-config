@@ -1,4 +1,3 @@
-" ---------------- Standard vim config --------------------------------
 set background=dark
 syntax on
 set showmatch

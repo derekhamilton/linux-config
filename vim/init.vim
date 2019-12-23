@@ -19,6 +19,8 @@ let g:firenvim_config = {
         \ '.*': {
             \ 'selector': 'textarea, div[role="textbox"]',
             \ 'priority': 0,
-        \ }
+        \ },
+        \ '.*\.slack.com': { 'selector': '', 'priority': 0 },
+        \ 'facebook\.com': { 'selector': '', 'priority': 0 }
     \ }
 \ }
