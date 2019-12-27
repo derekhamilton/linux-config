@@ -24,6 +24,7 @@ set nomodeline
 set termguicolors
 set number
 set relativenumber
+set path+=**
 
 " Set theme
 colorscheme snazzy

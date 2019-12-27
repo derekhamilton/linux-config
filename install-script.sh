@@ -31,6 +31,7 @@ sudo apt-get install -y vlc
 sudo apt-get install -y ffmpeg
 sudo apt-get install -y xcompmgr
 sudo apt-get install -y ripgrep
+sudo apt-get install -y ranger
 
 # Google Chrome browser
 wget https://dl-ssl.google.com/linux/direct/google-chrome-stable_current_amd64.deb

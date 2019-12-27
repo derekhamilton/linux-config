@@ -182,6 +182,9 @@ Plug 'https://github.com/jwalton512/vim-blade'
 Plug 'https://github.com/moll/vim-bbye'
 nmap <Leader>q :Bdelete<CR>
 
+" expressive addition of comments
+Plug 'https://github.com/tpope/vim-commentary'
+
 " Vim to character in file
 Plug 'https://github.com/easymotion/vim-easymotion'
 nmap <C-s> <Plug>(easymotion-s2)
@@ -201,6 +204,9 @@ Plug 'https://github.com/nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guide_start_level = 2
 let g:indent_guides_guide_size = 1
+
+" indent custom text object
+Plug 'https://github.com/michaeljsmith/vim-indent-object'
 
 " JSX syntax highlighting
 Plug 'https://github.com/mxw/vim-jsx'
