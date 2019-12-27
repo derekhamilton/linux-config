@@ -257,4 +257,13 @@ nmap <silent> <leader>ak :ALEPrevious<cr>
 " Plug 'https://github.com/leafgarland/typescript-vim'
 Plug 'https://github.com/HerringtonDarkholme/yats.vim'
 
+" PHP formatting
+Plug 'https://github.com/2072/vim-syntax-for-PHP'
+
+" Navigate by indent level
+" ]= next line of the same indent level
+" ]+ next line of greater indent level
+" ]- next line of lesser indent level
+Plug 'https://github.com/jeetsukumaran/vim-indentwise'
+
 call plug#end()
