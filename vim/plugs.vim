@@ -219,6 +219,8 @@ let g:indent_guide_start_level = 2
 let g:indent_guides_guide_size = 1
 
 " indent custom text object
+" use `I` to represent an indentation level
+" e.g. diI for delete in the current indent level
 Plug 'https://github.com/michaeljsmith/vim-indent-object'
 
 " JSX syntax highlighting
@@ -250,6 +252,12 @@ Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'kyoz/purify', { 'rtp': 'vim' }
 Plug 'https://github.com/cormacrelf/vim-colors-github'
 
+" Navigate by indent level
+" ]= next line of the same indent level
+" ]+ next line of greater indent level
+" ]- next line of lesser indent level
+Plug 'https://github.com/jeetsukumaran/vim-indentwise'
+
 " two-letter single line search
 " s[two letters here]
 " ; to move to next instance
@@ -259,17 +267,11 @@ Plug 'https://github.com/justinmk/vim-sneak'
 " ex. change 'foo' to "foo" => cs'"
 Plug 'https://github.com/tpope/vim-surround'
 
-" TypeScript syntax highlighting
-" Plug 'https://github.com/leafgarland/typescript-vim'
-Plug 'https://github.com/HerringtonDarkholme/yats.vim'
-
 " PHP formatting
 Plug 'https://github.com/2072/vim-syntax-for-PHP'
 
-" Navigate by indent level
-" ]= next line of the same indent level
-" ]+ next line of greater indent level
-" ]- next line of lesser indent level
-Plug 'https://github.com/jeetsukumaran/vim-indentwise'
+" TypeScript syntax highlighting
+" Plug 'https://github.com/leafgarland/typescript-vim'
+Plug 'https://github.com/HerringtonDarkholme/yats.vim'
 
 call plug#end()
