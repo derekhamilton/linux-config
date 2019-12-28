@@ -1,5 +1,18 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
+" async linting
+Plug 'https://github.com/w0rp/ale'
+let g:ale_php_php_cs_fixer_executable='~/bin/php-cs-fixer'
+let g:ale_fixers = {'php': ['php_cs_fixer']}
+let g:ale_php_phpcs_standard = '~/psr2-custom.xml'
+let g:ale_php_phpmd_ruleset = 'unusedcode'
+let g:ale_php_phpstan_executable = 'phpstan'
+let g:ale_php_phpstan_use_global = 1
+let g:ale_php_phpstan_level = 7
+let g:ale_fix_on_save = 1
+nmap <silent> <leader>aj :ALENext<cr>
+nmap <silent> <leader>ak :ALEPrevious<cr>
+
 " Autocompletion client for use with language servers
 Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
 " To install the language servers, run these commands
@@ -161,11 +174,6 @@ autocmd VimEnter * nested :call tagbar#autoopen(1)
 set <F8>=[19~
 nmap <F8> :MBEClose<CR>:TagbarToggle<CR>:MBEOpen<CR>
 
-" Multiline function arguments
-" <Leader>A to convert single line arguments to multiline
-Plug 'https://github.com/FooSoft/vim-argwrap/'
-nnoremap <silent> <leader>A :ArgWrap<CR>
-
 " Debugger
 Plug 'https://github.com/vim-vdebug/vdebug'
 let g:vdebug_features = { 'max_children': 256 }
@@ -175,12 +183,17 @@ let g:vdebug_options['break_on_open'] = 0
 let g:vdebug_options['watch_window_style'] = 'compact'
 let g:vdebug_options['path_maps'] = { '/var/www': $HOME.'/www' }
 
-" Syntax highlighting for Blade templates
-Plug 'https://github.com/jwalton512/vim-blade'
+" Multiline function arguments
+" <Leader>A to convert single line arguments to multiline
+Plug 'https://github.com/FooSoft/vim-argwrap/'
+nnoremap <silent> <leader>A :ArgWrap<CR>
 
 " Close buffers without closing the window
 Plug 'https://github.com/moll/vim-bbye'
 nmap <Leader>q :Bdelete<CR>
+
+" Syntax highlighting for Blade templates
+Plug 'https://github.com/jwalton512/vim-blade'
 
 " expressive addition of comments
 Plug 'https://github.com/tpope/vim-commentary'
@@ -240,19 +253,6 @@ Plug 'https://github.com/cormacrelf/vim-colors-github'
 " change surrounding characters
 " ex. change 'foo' to "foo" => cs'"
 Plug 'https://github.com/tpope/vim-surround'
-
-" async linting
-Plug 'https://github.com/w0rp/ale'
-let g:ale_php_php_cs_fixer_executable='~/bin/php-cs-fixer'
-let g:ale_fixers = {'php': ['php_cs_fixer']}
-let g:ale_php_phpcs_standard = '~/psr2-custom.xml'
-let g:ale_php_phpmd_ruleset = 'unusedcode'
-let g:ale_php_phpstan_executable = 'phpstan'
-let g:ale_php_phpstan_use_global = 1
-let g:ale_php_phpstan_level = 7
-let g:ale_fix_on_save = 1
-nmap <silent> <leader>aj :ALENext<cr>
-nmap <silent> <leader>ak :ALEPrevious<cr>
 
 " TypeScript syntax highlighting
 " Plug 'https://github.com/leafgarland/typescript-vim'
