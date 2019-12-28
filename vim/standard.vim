@@ -30,7 +30,7 @@ set path+=**
 colorscheme snazzy
 highlight Normal guibg=#202020
 
-"hi CursorLine cterm=none ctermbg=black
+"highlight CursorLine cterm=none ctermbg=black
 highlight CursorLine cterm=none ctermbg=black
 
 " highlighting per filetype
@@ -46,7 +46,7 @@ match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 
 " vdebug line highlighting
-hi DbgBreakptLine guibg=#400040 ctermbg=113 ctermfg=244
-hi DbgBreakptSign guibg=#400040 ctermbg=113 ctermfg=244
-hi DbgCurrentLine guibg=#000000 ctermbg=none ctermfg=none
-hi DbgCurrentSign guibg=#000000 ctermbg=none ctermfg=red
+highlight DbgBreakptLine guibg=#400040 ctermbg=113 ctermfg=244
+highlight DbgBreakptSign guibg=#400040 ctermbg=113 ctermfg=244
+highlight DbgCurrentLine guibg=#000000 ctermbg=none ctermfg=none
+highlight DbgCurrentSign guibg=#000000 ctermbg=none ctermfg=red
