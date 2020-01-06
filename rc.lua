@@ -374,7 +374,7 @@ globalkeys = gears.table.join(
 
     -- suspend the system
     awful.key({ "Control", modkey, }, "s", function () awful.spawn.with_shell('systemctl suspend') end),
-p
+
     -- blurred lock screen
     awful.key({ "Control", modkey, }, "l", function () awful.spawn.with_shell('scrot /tmp/screenshot.png; convert /tmp/screenshot.png -blur 0x5 /tmp/screenshotblur.png; i3lock -i /tmp/screenshotblur.png;') end)
 )
