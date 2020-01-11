@@ -58,10 +58,6 @@ wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbol
 mv PowerlineSymbols.otf ~/.local/share/fonts
 sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/
 
-# vim-plug
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 # alacritty terminal
 sudo apt-get install -y libfreetype6-dev libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
 cd ~/applications
@@ -85,18 +81,16 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 chsh -s zsh
 
 # install neovim
-# required for neovim clipboard support
-sudo apt-get install -y xclip
+sudo apt-get install -y xclip # required for neovim clipboard support
 curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 chmod u+x nvim.appimage
 mv ./nvim.appimage ~/bin/nvim
 pip3 install neovim
-
-# neovim
-curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-chmod u+x nvim.appimage
-mv ./nvim.appimage ~/bin/nvim
 sudo update-alternatives --config editor
+
+# vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # build tools
 sudo apt-get install -y cmake

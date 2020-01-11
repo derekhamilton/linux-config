@@ -1,4 +1,4 @@
-" Rename CTRL+C to perform an escape instaed a literal CTRL+C
+" Remap CTRL+C to perform an escape instead a literal CTRL+C
 imap <C-c> <C-[>
 
 " buffer shortcuts
