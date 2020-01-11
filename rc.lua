@@ -355,13 +355,27 @@ globalkeys = gears.table.join(
     -- Custom system keybindings
     awful.key({ }, "Print", function () awful.util.spawn('flameshot gui -p '..os.getenv("HOME").."/Pictures/Screenshots/") end),
     awful.key({ "Control", "Shift" }, "F12", function () awful.spawn.with_shell("grabc | xclip -i") end),
+
+    -- fuzzy search applications to open
     awful.key({ modkey, }, "r", function () awful.spawn.with_shell("rofi -show run") end),
-    -- awful.key({ modkey, }, "l", function () awful.spawn.with_shell('rofi -combi-modi window,tabs -show combi -modi tabs:"python3 '..os.getenv("HOME")..'/applications/rofi-firefox-tabs/script/tabs.py"') end)
+
+    -- fuzzy search open windows by title
     awful.key({ modkey, }, "l", function () awful.spawn.with_shell('rofi -show window') end),
+
+    -- fuzzy search bookmarks and open the selected bookmark in chrome
     awful.key({ modkey, }, "b", function () awful.spawn.with_shell(os.getenv("HOME")..'/.local/bin/rofi-browser-bookmarks google-chrome') end),
     awful.key({ modkey, }, "w", function () awful.spawn.with_shell(os.getenv("HOME")..'/.local/bin/rofi-browser-bookmarks google-chrome Work') end),
+
+    -- use rofi to select the site to copy the lastpass password
     awful.key({ "Control", modkey, }, "p", function () awful.spawn.with_shell('lastpass-rofi-copy') end),
+
+    -- pause spotify
+    awful.key({ "Control", "Shift", }, "F11", function () awful.spawn.with_shell("xdotool windowactivate --sync $(wmctrl -l | grep -i open.spotify.com | awk '{print $1}') key F8") end),
+
+    -- suspend the system
     awful.key({ "Control", modkey, }, "s", function () awful.spawn.with_shell('systemctl suspend') end),
+
+    -- blurred lock screen
     awful.key({ "Control", modkey, }, "l", function () awful.spawn.with_shell('scrot /tmp/screenshot.png; convert /tmp/screenshot.png -blur 0x5 /tmp/screenshotblur.png; i3lock -i /tmp/screenshotblur.png;') end)
 )
 
