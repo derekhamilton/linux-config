@@ -20,18 +20,18 @@ sudo apt-get install -y google-chrome
 sudo apt-get install -y rofi
 sudo apt-get install -y flameshot
 sudo apt-get install -y unclutter
-sudo apt-get install -y nm-applet
+sudo apt-get install -y nm-applet #network manager
 sudo apt-get install -y mycli
 sudo apt-get install -y i3lock
-sudo apt-get install -y scrot
+sudo apt-get install -y scrot # CLI screenshot saver
 sudo apt-get install -y convert
 sudo apt-get install -y python3
 sudo apt-get install -y python3-pip
 sudo apt-get install -y vlc
 sudo apt-get install -y ffmpeg
-sudo apt-get install -y xcompmgr
+sudo apt-get install -y xcompmgr # composite display for opacity and effects
 sudo apt-get install -y ripgrep
-sudo apt-get install -y ranger
+sudo apt-get install -y ranger # terminal file browser
 
 # Google Chrome browser
 wget https://dl-ssl.google.com/linux/direct/google-chrome-stable_current_amd64.deb

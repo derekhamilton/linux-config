@@ -25,14 +25,15 @@ nmap <Leader>sql :%!sqlformat --reindent --keywords upper -<CR>
 
 " Toggle fix on save
 function! FixOnSaveToggle()
-    echo "RUNNING"
     if g:ale_fix_on_save
         let g:ale_fix_on_save = 0
+        echo "ALE Fix On Save [Off]"
     else
         let g:ale_fix_on_save = 1
+        echo "ALE Fix On Save [On]"
     endif
 endfunction
-nmap <Leader>fos FixOnSaveToggle()
+nmap <Leader>fos :call FixOnSaveToggle()<CR>
 
 " coc-prettier
 " Installed with :CocInstall coc-prettier

@@ -10,7 +10,7 @@ else
     else
         source ~/.config/linux-config/vim/standard.vim
         source ~/.config/linux-config/vim/shortcuts.vim
-        source ~/.config/linux-config/vim/status-line.vim
+        " source ~/.config/linux-config/vim/status-line.vim
     endif
 endif
 

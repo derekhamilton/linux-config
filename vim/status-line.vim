@@ -1,10 +1,11 @@
 " statusline settings
+
 set statusline=
-set statusline+=%1*\[%n]                                 "buffernr
+set statusline+=%1*\ %{LinterStatus()}
+set statusline+=%2*\[%n]                                 "buffernr
 set statusline+=\ %<%F\                                  "File+path
-set statusline+=%2*\ %y\                                 "FileType
-set statusline+=%3*\ %{''.(&fenc!=''?&fenc:&enc).''}     "Encoding
-set statusline+=%4*\ %{(&bomb?\",BOM\":\"\")}\           "Encoding2
+set statusline+=%3*\ %y\                                 "FileType
+set statusline+=%4*\ %{''.(&fenc!=''?&fenc:&enc).''}     "Encoding
 set statusline+=%5*\ %=\ row:%l/%L\                      "Rownumber/total (%)
 set statusline+=%6*\ words:%{len(split(getline('.')[col('.'):]))}\  "Words after cursor
 set statusline+=%6*%{len(split(getline('.')))}\          "Words on the line
@@ -33,13 +34,26 @@ function! WordCount()
     return s:word_count
 endfunction
 
-hi User1 guifg=#ffdad8  guibg=#880c0e   ctermfg=255 ctermbg=88
-hi User2 guifg=#000000  guibg=#F4905C   ctermfg=0   ctermbg=209
-hi User3 guifg=#292b00  guibg=#f4f597   ctermfg=0   ctermbg=228
-hi User4 guifg=#112605  guibg=#aefe7B   ctermfg=0   ctermbg=155
-hi User5 guifg=#051d00  guibg=#7dcc7d   ctermfg=0   ctermbg=77
-hi User6 guifg=#ffffff  guibg=#5b7fbb   ctermfg=255 ctermbg=27
-hi User7 guifg=#ffffff  guibg=#810085   ctermfg=255 ctermbg=90
-hi User8 guifg=#ffffff  guibg=#880c0e   ctermfg=255 ctermbg=88   gui=bold
-hi User0 guifg=#ffffff  guibg=#094afe   ctermfg=255 ctermbg=27
-hi statusline ctermfg=255 ctermbg=237
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+
+    return l:counts.total == 0 ? 'OK ' : printf(
+    \   '###                      %dW %dE                      ### ',
+    \   all_non_errors,
+    \   all_errors
+    \)
+endfunction
+
+highlight User1 guifg=#ffdad8  guibg=#880c0e   ctermfg=255 ctermbg=88
+highlight User2 guifg=#000000  guibg=#F4905C   ctermfg=0   ctermbg=209
+highlight User3 guifg=#292b00  guibg=#f4f597   ctermfg=0   ctermbg=228
+highlight User4 guifg=#112605  guibg=#aefe7B   ctermfg=0   ctermbg=155
+highlight User5 guifg=#051d00  guibg=#7dcc7d   ctermfg=0   ctermbg=77
+highlight User6 guifg=#ffffff  guibg=#5b7fbb   ctermfg=255 ctermbg=27
+highlight User7 guifg=#ffffff  guibg=#810085   ctermfg=255 ctermbg=90
+highlight User8 guifg=#ffffff  guibg=#880c0e   ctermfg=255 ctermbg=88   gui=bold
+highlight User0 guifg=#ffffff  guibg=#094afe   ctermfg=255 ctermbg=27
+highlight statusline ctermfg=255 ctermbg=237

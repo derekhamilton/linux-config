@@ -6,10 +6,16 @@ let g:ale_php_php_cs_fixer_executable='~/bin/php-cs-fixer'
 let g:ale_fixers = {'php': ['php_cs_fixer']}
 let g:ale_php_phpcs_standard = '~/psr2-custom.xml'
 let g:ale_php_phpmd_ruleset = 'unusedcode'
-let g:ale_php_phpstan_executable = 'phpstan'
-let g:ale_php_phpstan_use_global = 1
-let g:ale_php_phpstan_level = 7
+"let g:ale_php_phpstan_executable = 'phpstan'
+"let g:ale_php_phpstan_use_global = 1
+"let g:ale_php_phpstan_level = 7
+let psalm_langserver_use_global = 1
+let psalm_langserver_options = "--threads=8 --diff --diff-methods"
 let g:ale_fix_on_save = 1
+let g:airline#extensions#ale#enabled = 0
+
+" let g:ale_lint_on_save = 1
+" let g:ale_lint_on_text_changed = 0
 nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
 
@@ -25,6 +31,8 @@ nmap <Leader>rn <Plug>(coc-rename)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+" For CSS formatting:
+" :CocInstall coc-prettier
 
 " HTML expansion to full tags
 " e.g. div.container>span.label>a.link<C-y>,
@@ -86,7 +94,7 @@ endfunction
 
 " disable manual navigation to force movement commands
 Plug 'https://github.com/wikitopian/hardmode'
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+" autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
 " Persistent macro storage
 Plug 'https://github.com/vim-scripts/marvim'
@@ -183,6 +191,35 @@ let g:vdebug_options['break_on_open'] = 0
 let g:vdebug_options['watch_window_style'] = 'compact'
 let g:vdebug_options['path_maps'] = { '/var/www': $HOME.'/www' }
 
+" Status bar
+Plug 'https://github.com/vim-airline/vim-airline'
+Plug 'https://github.com/vim-airline/vim-airline-themes'
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+
+    if l:counts.total == 0
+        highlight AleStatus guifg=#ffffff  guibg=#00A000 ctermfg=255 ctermbg=87
+        return 'OK'
+    else
+        highlight AleStatus guifg=#ffffff  guibg=#ff0000 ctermfg=255 ctermbg=88
+        return printf(
+    \   '%dE %dW',
+    \   all_errors,
+    \   all_non_errors
+    \)
+    endif
+endfunction
+
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'base16_snazzy'
+let g:airline_section_c = '%#AleStatus# %{LinterStatus()} %#airline_x# %<%F'
+function! AirlineInit()
+endfunction
+autocmd VimEnter * call AirlineInit()
+
 " Multiline function arguments
 " <Leader>A to convert single line arguments to multiline
 Plug 'https://github.com/FooSoft/vim-argwrap/'
@@ -206,6 +243,21 @@ nmap <C-t> <Plug>(easymotion-t2)
 
 " Git wrapper
 Plug 'https://github.com/tpope/vim-fugitive'
+nnoremap <space>gfa :Git add %:p<CR><CR>
+nnoremap <space>gfs :Gstatus<CR>
+nnoremap <space>gfc :Gcommit -v -q<CR>
+nnoremap <space>gft :Gcommit -v -q %:p<CR>
+nnoremap <space>gfd :Gdiff<CR>
+nnoremap <space>gfe :Gedit<CR>
+nnoremap <space>gfr :Gread<CR>
+nnoremap <space>gfw :Gwrite<CR><CR>
+nnoremap <space>gfl :silent! Glog<CR>:bot copen<CR>
+nnoremap <space>gfp :Ggrep<Space>
+nnoremap <space>gfm :Gmove<Space>
+nnoremap <space>gfb :Git branch<Space>
+nnoremap <space>gfo :Git checkout<Space>
+nnoremap <space>gfps :Dispatch! git push<CR>
+nnoremap <space>gfpl :Dispatch! git pull<CR>
 
 " Tag management
 Plug 'https://github.com/ludovicchabant/vim-gutentags'
@@ -258,6 +310,12 @@ Plug 'https://github.com/cormacrelf/vim-colors-github'
 " ]- next line of lesser indent level
 Plug 'https://github.com/jeetsukumaran/vim-indentwise'
 
+" Show indicate git changes in the gutter
+" ]c and [c to navigate hunks
+Plug 'https://github.com/mhinz/vim-signify'
+nnoremap <Leader>sghd :SignifyHunkDiff<CR>
+nnoremap <Leader>sghu :SignifyHunkUndo<CR>
+
 " two-letter single line search
 " s[two letters here]
 " ; to move to next instance
@@ -265,10 +323,10 @@ Plug 'https://github.com/justinmk/vim-sneak'
 
 " change surrounding characters
 " ex. change 'foo' to "foo" => cs'"
-Plug 'https://github.com/tpope/vim-surround'
+" Plug 'https://github.com/tpope/vim-surround'
 
 " PHP formatting
-Plug 'https://github.com/2072/vim-syntax-for-PHP'
+" Plug 'https://github.com/2072/vim-syntax-for-PHP'
 
 " TypeScript syntax highlighting
 " Plug 'https://github.com/leafgarland/typescript-vim'
