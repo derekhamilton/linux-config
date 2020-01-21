@@ -290,8 +290,20 @@ function! IPhpInsertUse()
     call PhpInsertUse()
     call feedkeys('a',  'n')
 endfunction
-autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
-autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+function! CasePhpInsertUse()
+    set noignorecase
+    call PhpInsertUse()
+    set ignorecase
+endfunction
+
+function! ICasePhpInsertUse()
+    set noignorecase
+    call IPhpInsertUse()
+    set ignorecase
+endfunction
+
+autocmd FileType php inoremap <Leader>u <Esc>:call ICasePhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>u :call CasePhpInsertUse()<CR>
 let g:php_namespace_sort_after_insert = 1
 
 " Refactoring tools

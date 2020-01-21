@@ -23,6 +23,12 @@ nmap <Leader>mycsv :g/^+/d <bar> %s/^\| /"/g <bar> %s/ \| /\",\"/g <bar> %s/\s\+
 " Format SQL
 nmap <Leader>sql :%!sqlformat --reindent --keywords upper -<CR>
 
+" Format JSON
+nmap <Leader>json :%!python -m json.tool<CR>
+
+" Run phpunit
+nmap <Leader>pu :!vendor/bin/phpunit %<CR>
+
 " Toggle fix on save
 function! FixOnSaveToggle()
     if g:ale_fix_on_save
