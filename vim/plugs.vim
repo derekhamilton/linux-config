@@ -340,6 +340,12 @@ Plug 'https://github.com/justinmk/vim-sneak'
 " PHP formatting
 " Plug 'https://github.com/2072/vim-syntax-for-PHP'
 
+" vim-powered built-in wiki
+" <Leader>ww to open wiki index
+Plug 'https://github.com/vimwiki/vimwiki'
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+
 " TypeScript syntax highlighting
 " Plug 'https://github.com/leafgarland/typescript-vim'
 Plug 'https://github.com/HerringtonDarkholme/yats.vim'
