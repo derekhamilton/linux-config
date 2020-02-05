@@ -152,8 +152,6 @@ export EDITOR="$HOME/bin/nvim"
 
 export COMPOSER_DISABLE_XDEBUG_WARN=1
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -164,3 +162,14 @@ cat {} || tree -C {}) 2> /dev/null | head -200'"
 if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
 fi
+
+# enable vim mode
+bindkey -v
+
+# remap CTRL+C to switch to normal mode
+bindkey -M viins '^C' vi-cmd-mode
+
+# remap interrupt to CTLR+E
+stty intr \^E
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

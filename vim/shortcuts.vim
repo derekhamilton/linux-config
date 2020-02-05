@@ -44,3 +44,9 @@ nmap <Leader>fos :call FixOnSaveToggle()<CR>
 " coc-prettier
 " Installed with :CocInstall coc-prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+" output current file path
+nmap <Leader>file :echo @%<CR>
+
+" copy current file path
+nmap <Leader>cfile :silent exec "!echo % \| xclip"<CR>:echo "Copied " . @%<CR>

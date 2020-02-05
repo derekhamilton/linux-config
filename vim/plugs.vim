@@ -6,9 +6,9 @@ let g:ale_php_php_cs_fixer_executable='~/bin/php-cs-fixer'
 let g:ale_fixers = {'php': ['php_cs_fixer']}
 let g:ale_php_phpcs_standard = '~/psr2-custom.xml'
 let g:ale_php_phpmd_ruleset = 'unusedcode'
-"let g:ale_php_phpstan_executable = 'phpstan'
-"let g:ale_php_phpstan_use_global = 1
-"let g:ale_php_phpstan_level = 7
+let g:ale_php_phpstan_executable = 'phpstan'
+let g:ale_php_phpstan_use_global = 1
+let g:ale_php_phpstan_level = 7
 let psalm_langserver_use_global = 1
 let psalm_langserver_options = "--threads=8 --diff --diff-methods"
 let g:ale_fix_on_save = 1
@@ -328,6 +328,16 @@ Plug 'https://github.com/mhinz/vim-signify'
 nnoremap <Leader>sghd :SignifyHunkDiff<CR>
 nnoremap <Leader>sghu :SignifyHunkUndo<CR>
 
+" jump to location by letters, like cvim
+Plug 'https://github.com/t9md/vim-smalls'
+let g:smalls_auto_jump = 1
+let g:smalls_auto_jump_min_input_length = 2
+let g:smalls_auto_jump_timeout = 0.2  " you may want to increase this
+let g:smalls_auto_set = 1
+let g:smalls_auto_set_min_input_length = 1
+let g:smalls_exit_at_notfound = 1
+nmap <Space> <Plug>(smalls)
+
 " two-letter single line search
 " s[two letters here]
 " ; to move to next instance
@@ -350,4 +360,11 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
 " Plug 'https://github.com/leafgarland/typescript-vim'
 Plug 'https://github.com/HerringtonDarkholme/yats.vim'
 
+
+" Commented out for testing undo stack
+" vim-surround
+" vim-syntax-for-PHP
 call plug#end()
+
+" Commented out for testing undo stack
+" vim-surround
