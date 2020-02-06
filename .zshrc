@@ -164,12 +164,12 @@ if [ -f ~/.zshrc.local ]; then
 fi
 
 # enable vim mode
-bindkey -v
+# bindkey -v
 
 # remap CTRL+C to switch to normal mode
-bindkey -M viins '^C' vi-cmd-mode
+# bindkey -M viins '^C' vi-cmd-mode
 
 # remap interrupt to CTLR+E
-stty intr \^E
+# stty intr \^E
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
