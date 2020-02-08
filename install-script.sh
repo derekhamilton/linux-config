@@ -31,7 +31,7 @@ sudo apt-get install -y vlc
 sudo apt-get install -y ffmpeg
 sudo apt-get install -y xcompmgr # composite display for opacity and effects
 sudo apt-get install -y ripgrep
-sudo apt-get install -y ranger # terminal file browser
+sudo apt-get install -y vifm # terminal file browser
 
 # Google Chrome browser
 wget https://dl-ssl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
