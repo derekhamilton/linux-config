@@ -2,8 +2,9 @@
 imap <C-c> <C-[>
 
 " buffer shortcuts
-:nnoremap <C-n> :bnext<CR>
-:nnoremap <C-p> :bprevious<CR>
+":nnoremap <C-n> :bnext<CR>
+":nnoremap <C-p> :bprevious<CR>
+:nnoremap <C-p> :b#<CR>
 
 " remap <Esc> to exit terminal mode
 :tnoremap <Esc> <C-\><C-n>
@@ -46,7 +47,7 @@ nmap <Leader>fos :call FixOnSaveToggle()<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " output current file path
-nmap <Leader>file :echo @%<CR>
+nmap <Leader>file :echo expand("%:p")<CR>
 
 " copy current file path
-nmap <Leader>cfile :silent exec "!echo % \| xclip"<CR>:echo "Copied " . @%<CR>
+nmap <Leader>yfile :let @+ = expand("%:p")<CR>:echo "Copied " . expand("%:p")<CR>

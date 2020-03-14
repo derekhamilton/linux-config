@@ -152,9 +152,13 @@ export EDITOR="$HOME/bin/nvim"
 
 export COMPOSER_DISABLE_XDEBUG_WARN=1
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# This loads slowly so disable unless it's needed
+# Disabling may prevent some executables from being in the path
+# for example, intelephense now will need an absolute path in :CocConfig
+#
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export FZF_DEFAULT_OPTS="--preview '(bat --style=numbers --color=always {} 2> /dev/null ||
 cat {} || tree -C {}) 2> /dev/null | head -200'"

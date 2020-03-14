@@ -99,10 +99,16 @@ Plug 'https://github.com/wikitopian/hardmode'
 " Persistent macro storage
 Plug 'https://github.com/vim-scripts/marvim'
 
+" Edit macros easily
+" <Leader>qe{macro register key}
+Plug 'https://github.com/zdcthomas/medit'
+let g:medit_no_mappings = 1
+nmap <Leader>qe <Plug>MEdit
+
 " Buffer sidebar nav
-Plug 'https://github.com/fholgado/minibufexpl.vim'
-let g:miniBufExplVSplit = 20
-let g:miniBufExplBuffersNeeded = 1
+" Plug 'https://github.com/fholgado/minibufexpl.vim'
+" let g:miniBufExplVSplit = 20
+" let g:miniBufExplBuffersNeeded = 1
 
 " Generates PHP doc blocks
 Plug 'https://github.com/tobyS/pdv'
@@ -178,9 +184,11 @@ vmap <C-t> :Tab /=
 " Sidebar for function names, vars, etc
 Plug 'https://github.com/majutsushi/tagbar'
 let g:tagbar_width = 26
-autocmd VimEnter * nested :call tagbar#autoopen(1)
+let g:tagbar_left = 1
+"autocmd VimEnter * nested :TagbarOpen<CR>
 set <F8>=[19~
-nmap <F8> :MBEClose<CR>:TagbarToggle<CR>:MBEOpen<CR>
+"nmap <F8> :MBEClose<CR>:TagbarToggle<CR>:MBEOpen<CR>
+nmap <F8> :TagbarToggle<CR>
 
 " Debugger
 Plug 'https://github.com/vim-vdebug/vdebug'
@@ -227,7 +235,7 @@ nnoremap <silent> <leader>A :ArgWrap<CR>
 
 " Close buffers without closing the window
 Plug 'https://github.com/moll/vim-bbye'
-nmap <Leader>q :Bdelete<CR>
+nmap <Leader>qq :Bdelete<CR>
 
 " Syntax highlighting for Blade templates
 Plug 'https://github.com/jwalton512/vim-blade'
@@ -345,7 +353,7 @@ Plug 'https://github.com/justinmk/vim-sneak'
 
 " change surrounding characters
 " ex. change 'foo' to "foo" => cs'"
-" Plug 'https://github.com/tpope/vim-surround'
+Plug 'https://github.com/tpope/vim-surround'
 
 " PHP formatting
 " Plug 'https://github.com/2072/vim-syntax-for-PHP'
@@ -359,7 +367,6 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
 " TypeScript syntax highlighting
 " Plug 'https://github.com/leafgarland/typescript-vim'
 Plug 'https://github.com/HerringtonDarkholme/yats.vim'
-
 
 " Commented out for testing undo stack
 " vim-surround
