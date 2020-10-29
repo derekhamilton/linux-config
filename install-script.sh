@@ -48,9 +48,10 @@ mv ./diff-so-fancy ~/bin/
 ## https://github.com/sunaku/tamzen-font/archive/Tamzen-1.11.1.zip
 mkdir -p ~/.local/share/fonts
 cd ~/.local/share/fonts && git clone https://github.com/sunaku/tamzen-font.git
-xset +fp ~/.local/share/fonts/tamzen-font/bdf
-xset fp rehash
+cd ~/.local/share/fonts/tamzen-font
+rm -rf pcf png psf ttf bdf
 sudo rm /etc/fonts/conf.d/70-no-bitmaps.conf
+sudo ln -s ../conf.avail/70-force-bitmaps.conf /etc/fonts/conf.d/
 
 # powerline font symbols
 wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf

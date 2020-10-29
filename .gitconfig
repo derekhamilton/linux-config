@@ -52,3 +52,5 @@
 [user]
 	email = derek@dhamilton.codes
 	name = Derek Hamilton
+[pull]
+	rebase = false

@@ -27,6 +27,9 @@ nmap <Leader>sql :%!sqlformat --reindent --keywords upper -<CR>
 " Format JSON
 nmap <Leader>json :%!python -m json.tool<CR>
 
+" Formal XML
+nmap <Leader>xml :% ! xmllint --format -<CR>
+
 " Run phpunit
 nmap <Leader>pu :!vendor/bin/phpunit %<CR>
 

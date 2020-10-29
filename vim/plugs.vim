@@ -9,8 +9,8 @@ let g:ale_php_phpmd_ruleset = 'unusedcode'
 let g:ale_php_phpstan_executable = 'phpstan'
 let g:ale_php_phpstan_use_global = 1
 let g:ale_php_phpstan_level = 7
-let psalm_langserver_use_global = 1
-let psalm_langserver_options = "--threads=8 --diff --diff-methods"
+"let psalm_langserver_use_global = 1
+"let psalm_langserver_options = "--threads=8 --diff --diff-methods"
 let g:ale_fix_on_save = 1
 let g:airline#extensions#ale#enabled = 0
 
@@ -31,6 +31,7 @@ nmap <Leader>rn <Plug>(coc-rename)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <leader>ac  <Plug>(coc-codeaction)
 " For CSS formatting:
 " :CocInstall coc-prettier
 
@@ -121,6 +122,9 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:pdv_template_dir = $HOME ."/.local/share/nvim/plugged/pdv/templates"
 nnoremap <C-h> :call pdv#DocumentWithSnip()<CR>
 
+" Edit this to change the constructor autocomplete attributes
+" ~/.local/share/nvim/plugged/phpactor/vendor/phpactor/code-builder/templates/Property.php.twig
+
 " Set of completiong and refactoring tools
 Plug 'https://github.com/phpactor/phpactor', {'do': ':!composer install -d ~/.local/share/nvim/plugged/phpactor'}
 " autocmd FileType php setlocal omnifunc=phpactor#Complete
@@ -128,7 +132,7 @@ let g:phpactorOmniError = v:true
 " autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone ",noselect
 " Include use statement
-" nmap <Leader>u :call phpactor#UseAdd()<CR>
+nmap <Leader>u :call phpactor#UseAdd()<CR>
 " Invoke the context menu
 nmap <Leader>mm :call phpactor#ContextMenu()<CR>
 " Invoke the navigation menu
@@ -310,9 +314,9 @@ function! ICasePhpInsertUse()
     set ignorecase
 endfunction
 
-autocmd FileType php inoremap <Leader>u <Esc>:call ICasePhpInsertUse()<CR>
-autocmd FileType php noremap <Leader>u :call CasePhpInsertUse()<CR>
-let g:php_namespace_sort_after_insert = 1
+" autocmd FileType php inoremap <Leader>u <Esc>:call ICasePhpInsertUse()<CR>
+" autocmd FileType php noremap <Leader>u :call CasePhpInsertUse()<CR>
+" let g:php_namespace_sort_after_insert = 1
 
 " Refactoring tools
 Plug 'https://github.com/adoy/vim-php-refactoring-toolbox'

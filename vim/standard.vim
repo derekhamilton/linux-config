@@ -50,3 +50,8 @@ highlight DbgBreakptLine guibg=#400040 ctermbg=113 ctermfg=244
 highlight DbgBreakptSign guibg=#400040 ctermbg=113 ctermfg=244
 highlight DbgCurrentLine guibg=#000000 ctermbg=none ctermfg=none
 highlight DbgCurrentSign guibg=#000000 ctermbg=none ctermfg=red
+
+augroup LuaHighlight
+  autocmd!
+  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
+augroup END

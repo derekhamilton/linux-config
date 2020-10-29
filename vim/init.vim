@@ -23,6 +23,7 @@ let g:firenvim_config = {
         \ '.*\.slack\.com': { 'selector': '', 'priority': 0 },
         \ 'facebook\.com': { 'selector': '', 'priority': 0 },
         \ 'twitter\.com': { 'selector': '', 'priority': 0 },
-        \ 'twitch\.tv': { 'selector': '', 'priority': 0 }
+        \ 'twitch.tv': { 'selector': '', 'priority': 0 },
+        \ 'hangouts.google.com': { 'selector': '', 'priority': 0}
     \ }
 \ }
