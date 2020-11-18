@@ -2,8 +2,8 @@
 
 # rm -rf ~/.local/share/fonts/tamzen-font
 # cd ~/.local/share/fonts && git clone https://github.com/sunaku/tamzen-font.git
-xset +fp ~/.local/share/fonts/tamzen-font/bdf
-xset fp rehash
+# xset +fp ~/.local/share/fonts/tamzen-font/bdf
+# xset fp rehash
 
 xrandr --output DP-1-1 --primary
 xmodmap ~/.xmodmap
